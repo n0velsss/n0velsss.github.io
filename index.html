@@ -1,0 +1,247 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="Z0O">
+
+<style>
+html {
+  transition: filter 0.2s;
+}
+
+.night-mode {
+  filter: invert(1) hue-rotate(100deg);
+}
+
+#mode-toggle{
+  position:fixed;
+  bottom:0;
+  right:0;
+  margin:10px;
+  padding:3px 5px 4px;
+  color:gray;
+  font-size:10px;
+  border:none;
+  border-radius:10px;
+  background-color:rgba(255,255,255,0.4);
+  backdrop-filter: blur(4px);
+    z-index:15;
+}
+
+#toggleButton{
+  position:fixed;
+  bottom:0;
+  left:0;
+  margin:10px;
+  padding:3px 8px 4px;
+  color:gray;
+  font-size:10px;
+  border:none;
+  border-radius:10px;
+  background-color:rgba(255,255,255,0.4);
+  backdrop-filter: blur(4px);
+    z-index:15;
+}
+
+.transparent {
+      color: transparent;
+    }
+
+body {
+  font-family: "Noto Sans TC", sans-serif;
+  background-color: #e9e8ed;
+  margin: 0px;
+  padding: 0px;
+}
+
+.img {
+  transition: transform 0.1s;
+  background-image: url("https://images.unsplash.com/photo-1706527048236-c5e9183b9e8d?q=80&w=873&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  filter: invert(1);
+  background-size: cover;
+  position: fixed;
+  top:-80px;
+  left:-20px;
+  height: 150vh;
+  width: 120%;
+  z-index: -111;
+  opacity: 0.15;
+}
+
+hr {
+  border: 0.7px #c5c0c7 solid;
+}
+
+.top {
+  text-align: center;
+  padding: 20px 20px 0px;
+}
+
+.title {
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+  color: #605a64;
+}
+
+.author {
+  display: block;
+  font-size: 16px;
+  color: #8a858e;
+}
+
+.article {
+  padding: 0px 20px 0px;
+}
+
+pre {
+  white-space: pre-wrap;
+  font-size: 18px;
+  color: #5d5763;
+}
+
+.quote {
+  qqdisplay:none;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-left: 4px solid #ccc;
+  border-radius: 3px;
+  padding: 5px;
+  margin: 5px 0;
+  color: #5d5763;
+  backdrop-filter: blur(4px);
+  overflow: hidden;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  z-index:-15;
+}
+
+.quote p {
+  font-style: italic;
+}
+
+.quote footer {
+  font-size: 0.8em;
+  text-align: right;
+  margin-top: 5px;
+  color: #605a64;
+}
+</style>
+
+</head>
+
+<body>
+  <button id="mode-toggle">切換日夜</button>
+  <button id="toggleButton">透明</button>
+
+  <div class="img"></div>
+  <div class="top">
+    <span class="title">十店</span>
+    <span class="author">25115</span>
+    <hr>
+  </div>
+
+  <div class="article">
+    <pre>
+    中。
+樹葉揉
+
+nntransition: filter 0.5s;  // 檢查裝置是否支援傾
+斜事件
+
+  if ('DeviceOrientationEvent' in window) {
+
+    window.addEventLis
+    ion', handleOrientation);
+
+  }
+
+  function handleOrientation(event) {
+
+    // 取得傾斜角度
+
+    var tiltLR = event.gamma; // 左右傾斜
+
+    var tiltFB = event.beta;  // 前後傾斜
+
+    // 根據傾斜角度移動div
+
+    var div = document.querySelector('.img');
+
+    div.style.transform = 'translate(' + ,,ti
+    ltLR + 'px, ' + tiltFB + 'px)';
+
+  }
+
+
+</pre>
+    <blockquote class="quote">
+      <p>智人（學名：Homo sapiens，意為「現代的、有智慧的人類」），生物學上歸類為哺乳綱、靈長目、人科、人屬的物種。
+      </p>
+      <footer><span>維基百科</span></footer>
+    </blockquote>
+    <br><br> <br><br> <br><br> <br><br>
+  </div>
+
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  var modeToggle = document.getElementById("mode-toggle");
+  var htmlElement = document.getElementsByTagName("html")[0];
+
+  modeToggle.addEventListener("click", function () {
+    htmlElement.classList.toggle("night-mode");
+  });
+  modeToggle.click();
+});
+
+
+
+
+var isTransparent = false;
+    var toggleButton = document.getElementById("toggleButton");
+
+    toggleButton.addEventListener("click", function() {
+      var elements = document.querySelectorAll("body *");
+      
+      if (isTransparent) {
+        for (var i = 0; i < elements.length; i++) {
+          elements[i].classList.remove("transparent");
+        }
+      } else {
+        for (var i = 0; i < elements.length; i++) {
+          elements[i].classList.add("transparent");
+        }
+      }
+      
+      isTransparent = !isTransparent;
+    });
+
+
+
+
+
+
+
+// 檢查裝置是否支援傾斜事件
+  if ('DeviceOrientationEvent' in window) {
+    window.addEventListener('deviceorientation', handleOrientation);
+  }
+
+  function handleOrientation(event) {
+    // 取得傾斜角度
+    var tiltLR = -event.gamma/4; // 左右傾斜
+    var tiltFB = -event.beta/5;  // 前後傾斜
+
+    // 根據傾斜角度移動div
+    var div = document.querySelector('.img');
+    div.style.transform = 'translate(' + tiltLR + 'px, ' + tiltFB + 'px)';
+    
+  }
+  </script>
+</body>
+
+</html>
+
+
+
+
+
+
