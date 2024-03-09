@@ -3,251 +3,327 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="keywords" content="Z0O">
+  <title>n0vel</title>
 
-<style>
-html {
-  transition: filter 0.2s;
+  <style>
+    @import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
+  html {
 }
 
 .night-mode {
-  filter: invert(1) hue-rotate(100deg);
+  filter: invert(1) hue-rotate(180deg);
 }
 
-#mode-toggle{
-  position:fixed;
-  bottom:0;
-  right:0;
-  margin:10px;
-  padding:3px 5px 4px;
-  color:gray;
-  font-size:10px;
-  border:none;
-  border-radius:10px;
-  background-color:rgba(255,255,255,0.4);
+#mode-toggle {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 10px;
+  padding: 3px 5px 4px;
+  color: gray;
+  font-size: 10px;
+  border: 0.2px lightgray solid;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(4px);
-    z-index:15;
+  z-index: 15;
 }
-
-#toggleButton{
-  position:fixed;
-  bottom:0;
-  left:0;
-  margin:10px;
-  padding:3px 8px 4px;
-  color:gray;
-  font-size:10px;
-  border:none;
-  border-radius:10px;
-  background-color:rgba(255,255,255,0.4);
-  backdrop-filter: blur(4px);
-    z-index:15;
-}
-
-.transparent {
-      color: transparent;
-    }
 
 body {
   font-family: "Noto Sans TC", sans-serif;
-  background-color: #e9e8ed;
+  background-color: white;
   margin: 0px;
   padding: 0px;
 }
 
-.img {
-  transition: transform 0.1s;
-  background-image: url("https://images.unsplash.com/photo-1706527048236-c5e9183b9e8d?q=80&w=873&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+header {
+  padding: 20px;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header div {
+  text-align: right;
+}
+
+header button {
+  border: 1px white solid;
+  color: white;
+  font-size: 15px;
+  border-radius: 15px;
+  padding: 3px 7px 3px;
+  background-color: black;
+}
+
+header button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.logo {
+  width: 80px;
   filter: invert(1);
-  background-size: cover;
-  position: fixed;
-  top:-80px;
-  left:-20px;
-  height: 150vh;
-  width: 120%;
-  z-index: -111;
-  opacity: 0.15;
 }
 
-hr {
-  border: 0.7px #c5c0c7 solid;
+.bookshelf {
+  padding: 20px 0px 50px;
 }
 
-.top {
+.area {
+  white-space: nowrap;
+  scroll-snap-type: x;
+  overflow: auto;
+  min-height: 150px;
+  margin: 0px 15px 0px;
+  padding: 10px 0px 10px;
+  font-weight: bold;
+  color: black;
+  border: none;
+  text-align: left;
+}
+
+.block {
+  vertical-align: top;
+  white-space: normal;
+  display: inline-block;
+  margin: 15px;
+  text-align: left;
+}
+
+body .book {
+  font-family: "Noto Sans TC", serif;
+ letter-spacing:2px;
+  width: 110px;
+  min-height: 150px;
+  background-color: gray;
+  border: 0.7px gray solid;
+  border-radius: 3px;
   text-align: center;
-  padding: 20px 20px 0px;
+  box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.2), 0px 4px 8px rgba(0, 0, 0, 0.25),
+    2px 2px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* 夜間模式下的樣式 */
+html.night-mode body .book {
+  /* 夜間模式下的樣式 */
+  filter: invert(1) hue-rotate(180deg);
+}
+
+.book span {
+  font-size: 18px;
+  color: white;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  margin: 10px;
 }
 
 .title {
-  display: block;
   font-size: 24px;
   font-weight: bold;
-  color: #605a64;
+  margin: 20px;
 }
 
-.author {
+.name {
+  margin: 10px 0px 0px;
+  font-size: 14px;
   display: block;
-  font-size: 16px;
-  color: #8a858e;
 }
 
-  audio{
-opacity: 0.6;
-width:100%;
+.date {
+  font-size: 12px;
+  color: gray;
+  display: block;
 }
 
-.article {
-  padding: 0px 20px 0px;
+#森林 {
+  background-image: url("https://images.unsplash.com/photo-1706527048236-c5e9183b9e8d?q=80&w=873&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
 }
 
-pre {
-  white-space: pre-wrap;
-  font-size: 18px;
-  color: #5d5763;
+#森林 span {
+  color: white;
+  text-shadow: 1px 1px 0px gray;
 }
 
-.quote {
-  qqdisplay:none;
-  background-color: rgba(255, 255, 255, 0.3);
-  border-left: 4px solid #ccc;
-  border-radius: 3px;
-  padding: 5px;
-  margin: 5px 0;
-  color: #5d5763;
-  backdrop-filter: blur(4px);
-  overflow: hidden;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-  z-index:-15;
+#快餐店 {
+  background-image: url("https://images.unsplash.com/photo-1573655349936-de6bed86f839?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDk0NjA2NzB8&ixlib=rb-4.0.3&q=80&w=400");
+  background-size: cover;
 }
 
-.quote p {
-  font-style: italic;
+#走 {
+  background-image: url("https://images.unsplash.com/photo-1565157766821-580c4a1758cf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDk0NjA5NDF8&ixlib=rb-4.0.3&q=80&w=400");
+  background-size: cover;
 }
 
-.quote footer {
-  font-size: 0.8em;
-  text-align: right;
-  margin-top: 5px;
-  color: #605a64;
+#繩結 {
+  background-image: url("https://images.unsplash.com/photo-1573128659818-dcb794064b5a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDk0NzAwNTR8&ixlib=rb-4.0.3&q=80&w=400");
+  background-size: 250%;
+  background-position: center;
 }
-</style>
 
+#繩結 span {
+  color: black;
+}
+
+#夢 {
+  background-image: url("https://images.unsplash.com/photo-1644756325800-1f225cde1ba6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDk1NTQ4MDR8&ixlib=rb-4.0.3&q=80&w=400");
+  background-size: cover;
+  background-position: center;
+}
+
+#夢 span{
+  color:black;
+}
+
+#大堂 {
+  background-image: url("https://images.unsplash.com/photo-1579543228532-77621eee55a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDk5Njk4NTB8&ixlib=rb-4.0.3&q=80&w=400");
+  background-size: cover;
+  background-position: center;
+}
+
+#大堂 span{
+  color:black;
+}
+    
+  </style>
+  
 </head>
 
 <body>
   <button id="mode-toggle">切換日夜</button>
-  <button id="toggleButton">透明</button>
+  <header>
+    <img class="logo" src="https://n0velsss.github.io/media/img/logo.png">
+    <div>
+      <span></span>
+      <button>→</button>
+    </div>
+  </header>
 
-  <div class="img"></div>
-  <div class="top">
-    <span class="title">十二小時快餐店</span>
-    <span class="author">2464655</span>
-    <hr>
+  <!--本期文章-->
+  <div class="bookshelf">
+    <span class="title">本期文章</span>
+    <div class="area">
+      <div class="block">
+        <div class="book" id="森林" onclick="location.href=''">
+          <span> 一．森林</span>
+        </div>
+        <span class="name">十二小時快餐店</span>
+        <span class="date">??/03/2024</span>
+      </div>
+      <div class="block">
+        <div class="book" id="快餐店" onclick="location.href=''">
+          <span>二．快餐店</span>
+        </div>
+        <span class="name">十二小時快餐店</span>
+        <span class="date">??/03/2024</span>
+      </div>
+      <div class="block">
+        <div class="book" id="走" onclick="location.href=''">
+          <span>三．走</span>
+        </div>
+        <span class="name">十二小時快餐店</span>
+        <span class="date">??/03/2024</span>
+      </div>
+    </div>
   </div>
 
-  <div class="article">
-    <audio autoplay loop controls>  <source src="https://n0velsss.github.io/media/audio/Lights - Patrick Patrikios.mp3" type="audio/mpeg"></audio>
-    <pre>
-    中。
-樹葉揉
-
-nntransition: filter 0.5s;  // 檢查裝置是否支援傾
-斜事件
-
-  if ('DeviceOrientationEvent' in window) {
-
-    window.addEventLis
-    ion', handleOrientation);
-
-  }
-
-  function handleOrientation(event) {
-
-    // 取得傾斜角度
-
-    var tiltLR = event.gamma; // 左右傾斜
-
-    var tiltFB = event.beta;  // 前後傾斜
-
-    // 根據傾斜角度移動div
-
-    var div = document.querySelector('.img');
-
-    div.style.transform = 'translate(' + ,,ti
-    ltLR + 'px, ' + tiltFB + 'px)';
-
-  }
-
-
-</pre>
-    <blockquote class="quote">
-      <p>智人（學名：Homo sapiens，意為「現代的、有智慧的人類」），生物學上歸類為哺乳綱、靈長目、人科、人屬的物種。
-      </p>
-      <footer><span>維基百科</span></footer>
-    </blockquote>
-    <br><br> <br><br> <br><br> <br><br>
+  <!--回憶節點-->
+  <div class="bookshelf">
+    <span class="title">回憶節點</span>
+    <div class="area">
+      <div class="block">
+        <div class="book" id="大堂" style="background-color:" onclick="location.href=''">
+          <span>大堂</span>
+        </div>
+        <span class="name">大堂</span>
+        <span class="date">09/03/2024</span>
+      </div>
+      <div class="block">
+        <div class="book" id="" style="background-color:" onclick="location.href=''">
+          <span>暫未解鎖</span>
+        </div>
+        <span class="name">��</span>
+        <span class="date">??/03/2024</span>
+      </div>
+      <div class="block">
+        <div class="book" id="" style="background-color:" onclick="location.href=''">
+          <span>暫未解鎖</span>
+        </div>
+        <span class="name">����</span>
+        <span class="date">??/03/2024</span>
+      </div>
+    </div>
   </div>
+
+  <!--夢境碎片-->
+  <div class="bookshelf">
+    <span class="title">夢境碎片</span>
+    <div class="area">
+      <div class="block">
+        <div class="book" id="夢" style="background-color:" onclick="location.href=''">
+          <span>夢</span>
+        </div>
+        <span class="name">夢</span>
+        <span class="date">??/03/2024</span>
+      </div>
+      <div class="block">
+        <div class="book" id="" style="background-color:" onclick="location.href=''">
+          <span>暫未解鎖</span>
+        </div>
+        <span class="name">��</span>
+        <span class="date">??/03/2024</span>
+      </div>
+      <div class="block">
+        <div class="book" id="" style="background-color:" onclick="location.href=''">
+          <span>暫未解鎖</span>
+        </div>
+        <span class="name">����</span>
+        <span class="date">??/03/2024</span>
+      </div>
+    </div>
+  </div>
+
+  <!--思緒一隅-->
+  <div class="bookshelf">
+    <span class="title">思緒一隅</span>
+    <div class="area">
+      <div class="block">
+        <div class="book" id="繩結" style="background-color:" onclick="location.href=''">
+          <span>繩結</span>
+        </div>
+        <span class="name">繩結</span>
+        <span class="date">??/03/2024</span>
+      </div>
+      <div class="block">
+        <div class="book" id="" style="background-color:" onclick="location.href=''">
+          <span>暫未解鎖</span>
+        </div>
+        <span class="name">��</span>
+        <span class="date">??/03/2024</span>
+      </div>
+      <div class="block">
+        <div class="book" id="" style="background-color:" onclick="location.href=''">
+          <span>暫未解鎖</span>
+        </div>
+        <span class="name">����</span>
+        <span class="date">??/03/2024</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="height:150px"></div>
 
   <script>
-document.addEventListener("DOMContentLoaded", function () {
-  var modeToggle = document.getElementById("mode-toggle");
-  var htmlElement = document.getElementsByTagName("html")[0];
-
-  modeToggle.addEventListener("click", function () {
-    htmlElement.classList.toggle("night-mode");
-  });
-  modeToggle.click();
-});
-
-
-
-
-var isTransparent = false;
-    var toggleButton = document.getElementById("toggleButton");
-
-    toggleButton.addEventListener("click", function() {
-      var elements = document.querySelectorAll("body *");
-      
-      if (isTransparent) {
-        for (var i = 0; i < elements.length; i++) {
-          elements[i].classList.remove("transparent");
-        }
-      } else {
-        for (var i = 0; i < elements.length; i++) {
-          elements[i].classList.add("transparent");
-        }
-      }
-      
-      isTransparent = !isTransparent;
+    document.addEventListener("DOMContentLoaded", function() {
+      var modeToggle = document.getElementById("mode-toggle");
+      var htmlElement = document.getElementsByTagName("html")[0];
+      modeToggle.addEventListener("click", function() {
+        htmlElement.classList.toggle("night-mode");
+      });
     });
-
-
-
-
-
-
-
-// 檢查裝置是否支援傾斜事件
-  if ('DeviceOrientationEvent' in window) {
-    window.addEventListener('deviceorientation', handleOrientation);
-  }
-
-  function handleOrientation(event) {
-    // 取得傾斜角度
-    var tiltLR = -event.gamma/4; // 左右傾斜
-    var tiltFB = -event.beta/5;  // 前後傾斜
-
-    // 根據傾斜角度移動div
-    var div = document.querySelector('.img');
-    div.style.transform = 'translate(' + tiltLR + 'px, ' + tiltFB + 'px)';
-    
-  }
   </script>
 </body>
 
 </html>
-
-
-
-
-
-
