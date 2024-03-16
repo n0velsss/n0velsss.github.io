@@ -4,7 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="keywords" content="Z0O">
   <title>n0vel</title>
-  
+
   <style>
     @import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
 
@@ -33,12 +33,24 @@
       z-index: 15;
     }
 
-    @media screen and (max-width: 768px){
-    ::-webkit-scrollbar {
-      display: none;
+    audio {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      opacity: 0.8;
+      height: 20px;
+      width: calc(100% - 80px);
+      margin: 10px;
+      font-size: 10px;
+      z-index: 15;
     }
+
+    @media screen and (max-width: 768px) {
+      ::-webkit-scrollbar {
+        display: none;
+      }
     }
-    
+
     body {
       font-family: "Noto Sans TC", sans-serif;
       background-color: white;
@@ -211,6 +223,9 @@
 </head>
 
 <body>
+  <audio autoplay loop controls>  
+    <source src="https://n0velsss.github.io/media/audio/OB1 - RalphReal.mp3" type="audio/mpeg">
+  </audio>
   <button id="mode-toggle">切換日夜</button>
   <header>
     <img class="logo" src="https://n0velsss.github.io/media/img/logo.png">
@@ -220,8 +235,6 @@
     </div>
   </header>
 
-  <audio autoplay loop controls>  <source src="https://n0velsss.github.io/media/audio/OB1 - RalphReal.mp3" type="audio/mpeg"></audio>
-  
   <!--本期文章-->
   <div class="bookshelf">
     <span class="title">本期文章</span>
