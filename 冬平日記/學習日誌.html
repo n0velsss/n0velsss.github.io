@@ -1,0 +1,420 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="">
+  <title>冬平日記-學習日誌</title>
+
+  <style>
+@import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
+  body {
+  font-family: "Noto Sans TC", sans-serif;
+  background-color: black;
+  margin: 0px;
+  padding: 0px;
+}
+
+.menu{
+  position:fixed;
+  padding:15px;  
+  top:0;
+  right:0;
+  Z-index:997;
+  color:gray;
+  font-size:24px;
+  font-weight:bold;
+  cursor:pointer;
+  text-shadow: 0px 0px 1px rgba(0,0,0,0.9);
+  }
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 2px;
+  right: 7px;
+  font-size: 36px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+
+
+
+.img {
+  transition: transform 0.1s;
+  background-image: url("https://images.unsplash.com/photo-1610926950541-fb98c47896d4?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1NzgyNzR8&ixlib=rb-4.0.3&q=85");
+  filter: invert(0) grayscale(1);
+  background-size: cover;
+  position: fixed;
+  top: -80px;
+  left: -20px;
+  height: 150vh;
+  width: 120%;
+  z-index: -111;
+  opacity: 0.2;
+}
+
+#toggleButton {
+  filter: none;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 10px;
+  padding: 3px 8px 4px;
+  color: black;
+  font-size: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 15;
+}
+
+.transparent {
+  filter: blur(30px);
+}
+
+
+
+
+.top{
+  position:relative;
+  overflow:hidden;
+  min-height:100px;
+}
+
+.top-img{
+  position:absolute;
+  top:0;
+  width:100%;
+  height:155%;
+  Z-index:-5;
+  background-image: url("https://images.unsplash.com/photo-1502740289988-04eddde1556a?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1ODczNjF8&ixlib=rb-4.0.3&q=85");
+  background-size:cover;
+  background-position:center;
+  filter: invert(1) grayscale(1) contrast(500%);
+  transform: scaleY(-1);
+  mix-blend-mode: difference;
+  opacity: 0.5;
+}
+
+
+
+.photo {
+  white-space: nowrap;
+  scroll-snap-type: x;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  height: 200px;
+  text-align: left;
+  padding:10px 0px 0px;
+}
+
+.photo img{
+  height:100%;
+  display: inline-block;
+  white-space: normal;
+}
+
+.title {
+  font-family: "Noto Sans TC", serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  margin: 20px;
+  color: #ff8584;
+}
+
+#學習日誌::before{
+  content: "Learning log";
+  position: absolute;
+  transform: translate(40px, 13px);
+  z-index: -1;
+  color:gray;
+  font-size:15px;
+  font-weight: lighter;
+  font-style: italic;
+  font-family: "Noto Sans TC", sans-serif;
+  }
+
+
+
+
+
+.list{
+  padding:0px 20px 0px;
+  color:rgb(200,200,200);
+}
+
+details{
+  margin:0px 0px 15px;
+}
+
+summary{
+  color:gray;
+}
+
+summary span{
+  position: relative;
+  font-size: 18px;
+  letter-spacing: 2px;
+  color: white;
+  font-weight: nomal;
+  background-color: transparent;
+  border: none;
+  z-index: 0;
+}
+
+summary span::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 45%;
+  transform: translate(5px, 10px);
+  background-image: url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="rgb(255,133,132)" fill-opacity="0.5" fill-rule="evenodd"%3E%3Cpath d="M0 40L40 0H20L0 20M40 40V20L20 40"/%3E%3C/g%3E%3C/svg%3E');
+  background-repeat: repeat;
+  background-size: 7px;
+  z-index: -1;
+}
+
+
+
+footer {
+  background-color: black;
+  padding: 20px;
+  color: white;
+  text-align: center;
+  font-family: "Noto Sans TC", serif;
+}
+
+.info {
+  text-align: left;
+  font-family: "Noto Sans TC", sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  color: gray;
+}
+
+.info-title {
+  font-weight: bold;
+  color: white;
+}
+
+.info-L {
+  flex: 50%;
+}
+
+.info-R {
+  flex: 50%;
+}
+
+.info span {
+  display: block;
+  font-size: 14px;
+  padding: 2px 0px 2px;
+}
+
+footer hr {
+  border: 0.5px rgba(255, 255, 255, 0.4) solid;
+}
+
+/* width */
+
+@media screen and (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  /* Track */
+
+  ::-webkit-scrollbar-track {
+    border: none;
+    border-radius: 10px;
+  }
+
+  /* Handle */
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(102, 102, 102, 0.5);
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(66, 66, 66, 0.5);
+  }
+  </style>
+</head>
+
+<body>
+  <span class="menu" onclick="openNav()">&#9776</span>
+  
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">主頁</a>
+    <a href="#">學習日誌</a>
+    <a href="#">作品一覧</a>
+    <a href="#"></a>
+  </div>
+
+  <button id="toggleButton">隱藏</button>
+
+  <div class="img"></div>
+
+  <div class="top">
+    <br><span class="title" id="學習日誌">學習日誌</span>
+    <div class="top-img"></div>
+  </div>
+
+  <div class="list" style="min-height:85vh">
+    <details>
+      <summary><span>一些東西<span></summary>
+
+      <div class="photo">
+        <img src="https://images.unsplash.com/photo-1644031260422-4cb8f72438e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1ODIyNzh8&ixlib=rb-4.0.3&q=80&w=400">
+        <img src="https://images.unsplash.com/photo-1600003118950-e1a4afbf309b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1ODIzMDF8&ixlib=rb-4.0.3&q=80&w=400">
+        <img src="">
+      </div>
+
+      <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
+    </details>
+    <details>
+      <summary><span>Epcot Center<span></summary>
+      <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
+    </details>
+    <details>
+      <summary><span>一些東西<span></summary>
+
+      <div class="photo">
+        <img src="https://images.unsplash.com/photo-1644031260422-4cb8f72438e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1ODIyNzh8&ixlib=rb-4.0.3&q=80&w=400">
+        <img src="https://images.unsplash.com/photo-1600003118950-e1a4afbf309b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1ODIzMDF8&ixlib=rb-4.0.3&q=80&w=400">
+        <img src="">
+      </div>
+
+      <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
+    </details>
+    <details>
+      <summary><span>Epcot Center<span></summary>
+      <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
+    </details>
+    <details>
+      <summary><span>一些東西<span></summary>
+
+      <div class="photo">
+        <img src="https://images.unsplash.com/photo-1644031260422-4cb8f72438e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1ODIyNzh8&ixlib=rb-4.0.3&q=80&w=400">
+        <img src="https://images.unsplash.com/photo-1600003118950-e1a4afbf309b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1ODIzMDF8&ixlib=rb-4.0.3&q=80&w=400">
+        <img src="">
+      </div>
+
+      <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
+    </details>
+    <details>
+      <summary><span>Epcot Center<span></summary>
+      <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
+    </details>
+    <details>
+      <summary><span>一些東西<span></summary>
+
+      <div class="photo">
+        <img src="https://images.unsplash.com/photo-1644031260422-4cb8f72438e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1ODIyNzh8&ixlib=rb-4.0.3&q=80&w=400">
+        <img src="https://images.unsplash.com/photo-1600003118950-e1a4afbf309b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1ODIzMDF8&ixlib=rb-4.0.3&q=80&w=400">
+        <img src="">
+      </div>
+
+      <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
+    </details>
+    <details>
+      <summary><span>Epcot Center<span></summary>
+      <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
+    </details>
+  </div>
+
+  <footer>
+    <div class="info">
+      <div class="info-L">
+        <span class="info-title">需要幫忙？</span>
+        <span onclick="location.href='https://zh.m.wikipedia.org/zh-hk/BDSM'">怎麽是BDSM？</span>
+        <span onclick="location.href='https://en.m.wikipedia.org/wiki/Bondage_(BDSM)'">怎麽是繩縛？</span>
+        <span onclick="location.href='https://zh.m.wikipedia.org/zh-hk/%E6%80%A7%E5%90%8C%E6%84%8F'">怎麽是性同意？</span>
+      </div>
+      <div class="info-R">
+        <span class="info-title">社交平台</span>
+        <span onclick="location.href='https://m.weibo.cn/u/7555803164?t=0&luicode=10000011&lfid=231583'">微博</span>
+      </div>
+    </div>
+    <hr>
+    <span>冬 平 日 記</span>
+
+  </footer>
+
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+    var isTransparent = false;
+    var toggleButton = document.getElementById("toggleButton");
+    toggleButton.addEventListener("click", function() {
+      var elements = document.querySelectorAll("body *");
+      if (isTransparent) {
+        for (var i = 0; i < elements.length; i++) {
+          elements[i].classList.remove("transparent");
+        }
+      } else {
+        for (var i = 0; i < elements.length; i++) {
+          elements[i].classList.add("transparent");
+        }
+      }
+      isTransparent = !isTransparent;
+    });
+    // 檢查裝置是否支援傾斜事件
+    if ('DeviceOrientationEvent' in window) {
+      window.addEventListener('deviceorientation', handleOrientation);
+    }
+
+    function handleOrientation(event) {
+      // 取得傾斜角度
+      var tiltLR = -event.gamma / 4; // 左右傾斜
+      var tiltFB = -event.beta / 5; // 前後傾斜
+      // 根據傾斜角度移動div
+      var div = document.querySelector('.img');
+      div.style.transform = 'translate(' + tiltLR + 'px, ' + tiltFB + 'px)';
+    }
+  </script>
+
+</body>
+
+      </html>
