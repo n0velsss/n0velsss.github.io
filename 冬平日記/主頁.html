@@ -17,7 +17,55 @@ body {
   background-color: black;
   margin: 0px;
   padding: 0px;
+}
 
+.menu{
+  position:fixed;
+  padding:15px;  
+  top:0;
+  right:0;
+  Z-index:997;
+  color:gray;
+  font-size:24px;
+  font-weight:bold;
+  cursor:pointer;
+  text-shadow: 0px 0px 1px rgba(0,0,0,0.9);
+  }
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 2px;
+  right: 7px;
+  font-size: 36px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }
 
 .img {
@@ -419,6 +467,15 @@ footer hr {
 
 <body>
   <button id="toggleButton">隱藏</button>
+   <span class="menu" onclick="openNav()">&#9776</span>  
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">主頁</a>
+    <a href="#">學習日誌</a>
+    <a href="#">作品一覧</a>
+    <a href="#"></a>
+  </div>
   
   <div class="img"></div>
   
@@ -520,6 +577,12 @@ footer hr {
   </footer>
 
   <script>
+    function openNav() {      document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {      document.getElementById("mySidenav").style.width = "0";p
+    }
+    
     var isTransparent = false;
     var toggleButton = document.getElementById("toggleButton");
     toggleButton.addEventListener("click", function() {
