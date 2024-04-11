@@ -129,325 +129,189 @@ header audio {
 }
 
 .bookshelf {
-
   padding: 20px 0px 20px;
-
 }
 
 .area {
-
   white-space: nowrap;
-
   scroll-snap-type: x;
-
   overflow: auto;
-
   min-height: 150px;
-
   font-weight: bold;
-
   color: black;
-
   border: none;
-
   text-align: left;
-
 }
 
 .block {
-
   vertical-align: top;
-
   white-space: normal;
-
   display: inline-block;
-
   margin: 15px;
-
   text-align: left;
-
 }
 
 .space {
-
   padding: 7px;
-
 }
 
 body .book {
-
   -webkit-user-select: none;
-
   -moz-user-select: none;
-
   -ms-user-select: none;
-
   user-select: none;
-
   font-family: "Noto Sans TC", serif;
-
   letter-spacing: 2px;
-
   width: 110px;
-
   min-height: 150px;
-
   background-color: gray;
-
   border: 0.7px gray solid;
-
   border-radius: 3px;
-
   text-align: center;
-
   box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.2), 0px 4px 8px rgba(0, 0, 0, 0.25),
-
     2px 2px 2px rgba(0, 0, 0, 0.05);
-
 }
 
-.book span {
-
+.book span {    
   font-size: 18px;
-
   color: white;
-
   writing-mode: vertical-rl;
-
   text-orientation: upright;
-
   margin: 10px;
-
 }
 
 .title {
-
   font-family: "Noto Sans TC", serif;
-
   font-size: 20px;
-
   letter-spacing: 2px;
-
   font-weight: bold;
-
   margin: 20px;
-
   color: #ff8584;
-
 }
 
 .name {
-
   margin: 10px 0px 0px;
-
   font-size: 14px;
-
   display: block;
-
   color: white;
-
 }
 
 .date {
-
   font-size: 12px;
-
   color: gray;
-
   display: block;
-
 }
 
 .page {
-
   padding: 20px;
-
   background-image: url("https://images.unsplash.com/photo-1598476543599-72c8a60894d7?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1NTQ5MjV8&ixlib=rb-4.0.3&q=85");
-
   background-size: cover;
-
   background-position: center;
-
   text-align: center;
-
 }
 
 .page-btn {
-
   font-family: "Noto Sans TC", serif;
-
   position: relative;
-
   font-size: 18px;
-
   letter-spacing: 2px;
-
   color: black;
-
   font-weight: bold;
-
   background-color: transparent;
-
   border: none;
-
   padding: 20px;
-
   z-index: 0;
-
 }
 
 .page-btn::before {
-
   content: "";
-
   position: absolute;
-
   top: 0;
-
   left: 0;
-
   width: 70%;
-
   height: 25%;
-
   transform: translate(18px, 30px);
-
   background-image: url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="rgb(255,133,132)" fill-opacity="0.75" fill-rule="evenodd"%3E%3Cpath d="M0 40L40 0H20L0 20M40 40V20L20 40"/%3E%3C/g%3E%3C/svg%3E');
-
   background-repeat: repeat;
-
   background-size: 8%;
-
   z-index: -1;
-
 }
 
 .page-btn:hover {
-
   transform: scale(1.05);
-
 }
 
 .area2 {
-
   scroll-snap-type: y;
-
   overflow: auto;
-
   height: 200px;
-
   border: none;
-
   padding: 0px 20px 0px;
-
   margin: 0px 0px 30px;
-
 }
 
 .memo-word {
-
   margin: 7px 0px 13px;
-
   border-radius: 3px;
-
   color: #eeeeee;
-
   background-color:rgba(255,255,255,0.1);
-
   padding: 12px;
-
   border: 1px rgba(255, 255, 255, 0.2) solid;
-
   -webkit-backdrop-filter: blur(5px);
-
   backdrop-filter: blur(5px);
-
   box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.1);
-
 }
 
 footer {
-
   background-color: black;
-
   padding: 20px;
-
   color: white;
-
   text-align: center;
-
   font-family: "Noto Sans TC", serif;
-
 }
 
 .info {
-
   text-align: left;
-
   font-family: "Noto Sans TC", sans-serif;
-
   display: flex;
-
   flex-wrap: wrap;
-
   color:gray;
-
 }
 
 .info-title {
-
   font-weight: bold;
-
   color:white;
-
 }
 
 .info-L {
-
   flex: 50%;
-
 }
 
 .info-R {
-
   flex: 50%;
-
 }
 
 .info span {
-
   display: block;
-
   font-size: 14px;
-
   padding: 2px 0px 2px;
-
 }
 
 footer hr {
-
   border: 0.5px rgba(255, 255, 255, 0.4) solid;
-
 }
 
 /* width */
 
 @media screen and (min-width: 768px) {
-
   ::-webkit-scrollbar {
-
     width: 10px;
-
     height: 10px;
-
   }
 
   /* Track */
-
   ::-webkit-scrollbar-track {
-
     border: none;
-
     border-radius: 10px;
   }
 
