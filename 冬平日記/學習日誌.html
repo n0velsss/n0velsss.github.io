@@ -18,6 +18,33 @@
   padding: 0px;
 }
 
+.light{
+  color:transparent;
+  font-size:20px;
+  text-shadow:-10px 10px red,-6px 6px yellow,-2px 2px #00A1ff,2px -2px blue;
+  filter:blur(6px);
+  opacity: 0.7;
+  Z-index:500;
+  mix-blend-mode: lighten;
+}
+
+#L1{
+  position:fixed;
+  right:7%;
+  bottom:12%;
+}
+
+#L2{
+  position:fixed;
+  left:3%;
+  top:5%;
+  font-size:55px;
+  filter:blur(5px);
+  font-weight:light;
+  opacity: 0.8;
+}
+
+    
 /*菜單*/
 .menu{
   position:fixed;
@@ -282,6 +309,9 @@ footer hr {
   <button id="toggleButton">隱藏</button>
 
   <div class="img"></div>
+
+  <span class="light" id="L1">▓</span>
+  <span class="light" id="L2">╭</span>
 
   <div class="top">
     <br><span class="title" id="學習日誌">學習日誌</span>
