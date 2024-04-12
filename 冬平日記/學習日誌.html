@@ -8,6 +8,10 @@
   <style>
 @import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
   body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   font-family: "Noto Sans TC", sans-serif;
   background-color: black;
   margin: 0px;
@@ -248,7 +252,6 @@ footer hr {
 }
 
 /* width */
-
 @media screen and (min-width: 768px) {
   ::-webkit-scrollbar {
     width: 10px;
@@ -256,14 +259,12 @@ footer hr {
   }
 
   /* Track */
-
   ::-webkit-scrollbar-track {
     border: none;
     border-radius: 10px;
   }
 
   /* Handle */
-
   ::-webkit-scrollbar-thumb {
     background: rgba(102, 102, 102, 0.5);
     border-radius: 10px;
