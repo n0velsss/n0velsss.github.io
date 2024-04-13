@@ -1,0 +1,469 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="">
+  <title>冬平日記-任務及計時</title>
+
+  <style>
+    @import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
+
+    body {
+      font-family: "Noto Sans TC", sans-serif;
+      background-color: black;
+      margin: 0px;
+      padding: 0px;
+    }
+
+    /*光效*/
+    .light {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      color: transparent;
+      font-size: 20px;
+      text-shadow: -10px 10px red, -6px 6px yellow, -2px 2px #00A1ff, 2px -2px blue;
+      filter: blur(6px);
+      Z-index: 500;
+      mix-blend-mode: plus-lighter;
+    }
+
+    #L1 {
+      position: fixed;
+      right: 7%;
+      bottom: 12%;
+      opacity: 0.3;
+    }
+
+    #L2 {
+      position: fixed;
+      left: 3%;
+      top: 5%;
+      font-size: 55px;
+      filter: blur(5px);
+      font-weight: light;
+      opacity: 0.6;
+    }
+
+    #L3 {
+      position: fixed;
+      left: 8%;
+      bottom: 5%;
+      font-size: 70px;
+      filter: blur(8px);
+      font-weight: light;
+      opacity: 0.2;
+      text-shadow: 0px 0px red, 20px 0px yellow, 40px 0px #00A1ff, 60px 0px blue;
+      transform: scale(1.8) rotatez(-40deg);
+    }
+
+    #L4 {
+      position: fixed;
+      right: 25%;
+      top: 14%;
+      font-size: 20px;
+      filter: blur(10px);
+      font-weight: light;
+      opacity: 0.9;
+      text-shadow: 0px 0px red, 10px 0px yellow, 20px 0px #00A1ff, 30px 0px blue;
+      transform: scale(1.8) rotatez(-40deg);
+    }
+
+    /*菜單*/
+    .menu {
+      position: fixed;
+      padding: 15px;
+      top: 0;
+      right: 0;
+      Z-index: 997;
+      color: gray;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .sidenav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 999;
+      top: 0;
+      right: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      padding-top: 60px;
+    }
+
+    .sidenav a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 20px;
+      color: #818181;
+      display: block;
+    }
+
+    .sidenav a:hover {
+      color: #f1f1f1;
+    }
+
+    .sidenav .closebtn {
+      position: absolute;
+      top: 2px;
+      right: 7px;
+      font-size: 36px;
+    }
+
+    @media screen and (max-height: 450px) {
+      .sidenav {
+        padding-top: 15px;
+      }
+
+      .sidenav a {
+        font-size: 18px;
+      }
+    }
+
+    /*背景圖片*/
+    .img {
+      transition: transform 0.1s;
+      background-image: url("https://images.unsplash.com/photo-1511083285412-46fe2a6761a2?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTMwMDYyMzd8&ixlib=rb-4.0.3&q=85");
+      filter: invert(0) grayscale(0);
+      background-size: cover;
+      position: fixed;
+      top: -80px;
+      left: -20px;
+      height: 150vh;
+      width: 120%;
+      z-index: -111;
+      opacity: 0.9;
+    }
+
+    #toggleButton {
+      filter: none;
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      margin: 10px;
+      padding: 3px 8px 4px;
+      color: black;
+      font-size: 10px;
+      border: none;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(4px);
+      z-index: 15;
+    }
+
+    .transparent {
+      filter: blur(30px);
+    }
+
+    /*標題背景*/
+    .top {
+      position: relative;
+      overflow: hidden;
+      min-height: 100px;
+    }
+
+    .top-img {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 155%;
+      Z-index: -5;
+      background-image: url("https://images.unsplash.com/photo-1502740289988-04eddde1556a?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1ODczNjF8&ixlib=rb-4.0.3&q=85");
+      background-size: cover;
+      background-position: center;
+      filter: invert(1) grayscale(1) contrast(500%);
+      transform: scaleY(-1);
+      mix-blend-mode: plus-lighter;
+      opacity: 0.3;
+    }
+
+    .list {
+      padding: 20px;
+      text-align: center;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      max-height: 250px;
+      overflow: auto;
+    }
+
+    li {
+      color: rgb(50, 50, 50);
+      text-align: left;
+      padding: 10px 0px 10px;
+      list-style-type: decimal-leading-zero;
+      list-style-position: inside;
+      margin: 0;
+      border-bottom: 1px gray solid;
+    }
+
+    .target-list {
+      margin: 15px;
+    }
+
+    .list input {
+      font-size: 14px;
+      padding: 5px 10px 5px;
+      border-radius: 15px;
+      border: 1px lightgray solid;
+      width: 60%;
+    }
+
+    .list button {
+      font-size: 12px;
+      padding: 4px 10px 4px;
+      border-radius: 12px;
+      border: none;
+      background-color: #4578c0;
+      color: white;
+    }
+
+    form {
+      margin: 10px 0px 5px;
+    }
+
+    .list span {
+      color: gray;
+      font-size: 12px;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .timer {
+      font-size: 40px;
+    }
+
+    .controls {
+      padding: 5px 20px 5px;
+    }
+
+    .controls input {
+      width: 40px;
+    }
+
+    .container span {
+      font-size: 14px;
+      padding: 4px 10px 4px;
+      margin: 5px;
+      color: #4578c0;
+    }
+
+    .camera {
+      text-align: center;
+      margin: 0px 0px 10px;
+    }
+
+    .camera span {
+      color: #4578c0;
+      font-size: 14px;
+    }
+
+    .camera video {
+      transform: scalex(-1);
+      height: 80vh;
+      border: 1px white solid;
+      border-radius: 3px;
+      position: relative;
+      box-shadow: -5px 5px #4578c0;
+    }
+
+    /*滑動圖片*/
+    .photo {
+      white-space: nowrap;
+      scroll-snap-type: x;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      height: 200px;
+      text-align: left;
+      padding: 10px 0px 0px;
+    }
+
+    .photo img {
+      height: 100%;
+      display: inline-block;
+      white-space: normal;
+    }
+
+    .title {
+      font-family: "Noto Sans TC", serif;
+      font-size: 20px;
+      letter-spacing: 2px;
+      font-weight: bold;
+      margin: 20px;
+      color: #4578c0;
+    }
+
+    #學習日誌::before {
+      content: "Task and Timer";
+      position: absolute;
+      transform: translate(40px, 13px);
+      z-index: -1;
+      color: lightgray;
+      font-size: 15px;
+      font-weight: lighter;
+      font-style: italic;
+      font-family: "Noto Sans TC", sans-serif;
+    }
+
+    /*收合段落*/
+    .list2 {
+      padding: 0px 20px 0px;
+      color: rgb(50, 50, 50);
+    }
+
+    details {
+      margin: 0px 0px 15px;
+    }
+
+    summary {
+      color: gray;
+    }
+
+    summary span {
+      position: relative;
+      font-size: 18px;
+      letter-spacing: 2px;
+      color: black;
+      font-weight: nomal;
+      background-color: transparent;
+      border: none;
+      z-index: 0;
+    }
+
+    summary span::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 45%;
+      transform: translate(5px, 10px);
+      background-image: url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="rgb(69,120,192)" fill-opacity="0.4" fill-rule="evenodd"%3E%3Cpath d="M0 40L40 0H20L0 20M40 40V20L20 40"/%3E%3C/g%3E%3C/svg%3E');
+      background-repeat: repeat;
+      background-size: 7px;
+      z-index: -1;
+    }
+
+    /*頁尾*/
+    footer {
+      background-color: black;
+      padding: 20px;
+      color: white;
+      text-align: center;
+      font-family: "Noto Sans TC", serif;
+    }
+
+    .info {
+      text-align: left;
+      font-family: "Noto Sans TC", sans-serif;
+      display: flex;
+      flex-wrap: wrap;
+      color: gray;
+    }
+
+    .info-title {
+      font-weight: bold;
+      color: white;
+    }
+
+    .info-L {
+      flex: 50%;
+    }
+
+    .info-R {
+      flex: 50%;
+    }
+
+    .info span {
+      display: block;
+      font-size: 14px;
+      padding: 2px 0px 2px;
+    }
+
+    footer hr {
+      border: 0.5px rgba(255, 255, 255, 0.4) solid;
+    }
+
+    /* width */
+    @media screen and (min-width: 768px) {
+      ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        border: none;
+        border-radius: 10px;
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: rgba(102, 102, 102, 0.5);
+        border-radius: 10px;
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(66, 66, 66, 0.5);
+      }
+  </style>
+</head>
+
+<body>
+  <span class="menu" onclick="openNav()">&#9776</span>
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="https://n0velsss.github.io/%E5%86%AC%E5%B9%B3%E6%97%A5%E8%A8%98/%E4%B8%BB%E9%A0%81.html#">主頁</a>
+    <a href="https://n0velsss.github.io/%E5%86%AC%E5%B9%B3%E6%97%A5%E8%A8%98/%E5%AD%B8%E7%BF%92%E6%97%A5%E8%AA%8C.html#">學習日誌</a>
+    <a href="#">作品一覽</a>
+    <a href="#"></a>
+  </div>
+
+  <button id="toggleButton">隱藏</button>
+
+  <div class="img"></div>
+
+  <span class="light" id="L1">▓</span>
+  <span class="light" id="L2">╭</span>
+  <span class="light" id="L3">i</span>
+  <span class="light" id="L4">|</span>
+
+  <div class="top">
+    <br><span class="title" id="學習日誌">任務及計時</span>
+    <div class="top-img"></div>
+  </div>
+
+  <div class="container">
+    <div class="timer" id="timer">00:00:00 </div>
+    <div class="controls">
+      <input type="number" id="hours" placeholder="小時" min="0">
+      <input type="number" id="minutes" placeholder="分鐘" min="0" max="59">
+      <input type="number" id="seconds" placeholder="秒" min="0" max="59">
+
+    </div>
+    <span onclick="startTimer()">開始</span>
+    <span onclick="resetTimer()">清除</span>
+
+  </div>
+
+  <div class="list">
+    <ul id="target-list"></ul>
+    <form>
+      <input type="text" id="target-input" placeholder="在此處輸入您的任務"></input>
+      <button class="target-button" id="add-target">添加任務</button>
+    </form>
+    <span>點擊任務以移除</span>
+  </div><br>
+
+  <div class="camera">
+    <span id="cameraButton">開啟 / 關閉 鏡頭</span
