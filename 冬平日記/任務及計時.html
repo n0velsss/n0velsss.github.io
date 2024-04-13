@@ -466,4 +466,224 @@
   </div><br>
 
   <div class="camera">
-    <span id="cameraButton">開啟 / 關閉 鏡頭</span
+    <span id="cameraButton">開啟 / 關閉 鏡頭</span>
+    <div id="cameraContainer"></div>
+  </div>
+
+  <div class="list2" style="min-height:85vh">
+    <details>
+      <summary><span>聲明</span></summary>
+      <p>感謝您使用我們的網站。在使用本網站之前，請仔細閱讀並理解本聲明。<br>
+        <br>
+        1. 用戶輸入的資料：本網站使用曲奇（Cookie）技術來記錄和存儲用戶輸入的資料。這些資料僅用於改善用戶體驗和提供個人化的內容。我們承諾嚴格遵守相關隱私法律和政策，並保護您的個人資料安全。<br>
+        <br>
+        2. 前置鏡頭：本網站使用前置鏡頭功能，以便為您提供特定的服務或功能。在使用前置鏡頭之前，請確保您已經理解並同意使用該功能。我們將竭盡努力保護您的隱私，並僅在必要時使用前置鏡頭。<br>
+        <br>
+        3. 第三方連結：本網站可能包含指向第三方網站或服務的連結。這些連結僅為方便用戶提供，並不代表我們對該第三方網站的支持或背書。我們不對第三方網站的內容或隱私政策負責。使用第三方網站時，請自行審慎考慮風險。<br>
+        <br>
+        4. 聲明的變更：我們保留隨時更改本聲明的權利。請定期查看此頁面以獲取任何變更。繼續使用本網站將視為您接受這些變更。<br>
+        謝謝您使用我們的網站，並閱讀本聲明。<br>
+        <br>
+        日期：2024年4月13日
+      </p>
+    </details>
+  </div>
+
+  <footer>
+    <div class="info">
+      <div class="info-L">
+        <span class="info-title">需要幫忙？</span>
+        <span onclick="location.href='https://zh.m.wikipedia.org/zh-hk/BDSM'">怎麽是BDSM？</span>
+        <span onclick="location.href='https://en.m.wikipedia.org/wiki/Bondage_(BDSM)'">怎麽是繩縛？</span>
+        <span onclick="location.href='https://zh.m.wikipedia.org/zh-hk/%E6%80%A7%E5%90%8C%E6%84%8F'">怎麽是性同意？</span>
+      </div>
+      <div class="info-R">
+        <span class="info-title">社交平台</span>
+        <span onclick="location.href='https://m.weibo.cn/u/7555803164?t=0&luicode=10000011&lfid=231583'">微博</span>
+      </div>
+    </div>
+    <hr>
+    <span>冬 平 日 記</span>
+
+  </footer>
+
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
+
+  <script>
+    var isTransparent = false;
+    var toggleButton = document.getElementById("toggleButton");
+    toggleButton.addEventListener("click", function() {
+      var elements = document.querySelectorAll("body *");
+      if (isTransparent) {
+        for (var i = 0; i < elements.length; i++) {
+          elements[i].classList.remove("transparent");
+        }
+      } else {
+        for (var i = 0; i < elements.length; i++) {
+          elements[i].classList.add("transparent");
+        }
+      }
+      isTransparent = !isTransparent;
+    });
+    // 檢查裝置是否支援傾斜事件
+    if ('DeviceOrientationEvent' in window) {
+      window.addEventListener('deviceorientation', handleOrientation);
+    }
+
+    function handleOrientation(event) {
+      // 取得傾斜角度
+      var tiltLR = -event.gamma / 4; // 左右傾斜
+      var tiltFB = -event.beta / 5; // 前後傾斜
+      // 根據傾斜角度移動div
+      var div = document.querySelector('.img');
+      div.style.transform = 'translate(' + tiltLR + 'px, ' + tiltFB + 'px)';
+    }
+  </script>
+
+  <script>
+    var timerInterval;
+    var hoursInput = document.getElementById('hours');
+    var minutesInput = document.getElementById('minutes');
+    var secondsInput = document.getElementById('seconds');
+    var timerDisplay = document.getElementById('timer');
+
+    function startTimer() {
+      var hours = parseInt(hoursInput.value) || 0;
+      var minutes = parseInt(minutesInput.value) || 0;
+      var seconds = parseInt(secondsInput.value) || 0;
+      var totalSeconds = hours * 3600 + minutes * 60 + seconds;
+      if (totalSeconds > 0) {
+        clearInterval(timerInterval);
+        timerInterval = setInterval(function() {
+          if (totalSeconds <= 0) {
+            clearInterval(timerInterval);
+            alert('倒計時完成');
+          }
+          var hours = Math.floor(totalSeconds / 3600);
+          var minutes = Math.floor((totalSeconds % 3600) / 60);
+          var seconds = totalSeconds % 60;
+          timerDisplay.textContent = formatTime(hours) + ':' + formatTime(minutes) + ':' + formatTime(seconds);
+          totalSeconds--;
+        }, 1000);
+      }
+    }
+
+    function resetTimer() {
+      clearInterval(timerInterval);
+      timerDisplay.textContent = '00:00:00';
+      hoursInput.value = '';
+      minutesInput.value = '';
+      secondsInput.value = '';
+    }
+
+    function formatTime(time) {
+      return time.toString().padStart(2, '0');
+    }
+  </script>
+
+  <script>
+    // 檢查瀏覽器是否支援媒體設備
+    navigator.mediaDevices.getUserMedia({
+        video: true
+      })
+      .then(function(stream) {
+        var video = document.createElement('video');
+        video.srcObject = stream;
+        var cameraContainer = document.getElementById('cameraContainer');
+        cameraContainer.appendChild(video);
+        video.play();
+      })
+      .catch(function(error) {
+        console.log('瀏覽器不支援媒體設備或使用者未授權訪問鏡頭。');
+      });
+    // 點擊按鈕時切換鏡頭的顯示和隱藏
+    var cameraButton = document.getElementById('cameraButton');
+    var cameraContainer = document.getElementById('cameraContainer');
+    var cameraVisible = false;
+    cameraButton.addEventListener('click', function() {
+      if (cameraVisible) {
+        cameraContainer.style.display = 'none';
+        cameraVisible = false;
+      } else {
+        cameraContainer.style.display = 'block';
+        cameraVisible = true;
+      }
+    });
+  </script>
+
+  <script>
+    window.onload = function() {
+      // 從Cookie中讀取目標列表
+      var targets = document.cookie.split(";").find(function(c) {
+        return c.trim().startsWith("targets=");
+      });
+      if (targets) {
+        targets = targets.split("=")[1].split(",");
+      } else {
+        targets = [];
+      }
+      // 在頁面上顯示目標列表
+      var targetList = document.querySelector("#target-list");
+      targets.forEach(function(target) {
+        var li = document.createElement("li");
+        li.textContent = target;
+        targetList.appendChild(li);
+      });
+      // 添加目標時更新Cookie
+      document.querySelector("#add-target").addEventListener("click", function(e) {
+        e.preventDefault();
+        var input = document.querySelector("#target-input");
+        targets.push(input.value);
+        input.value = "";
+        document.cookie = "targets=" + targets.join(",");
+        var li = document.createElement("li");
+        li.textContent = targets[targets.length - 1];
+        targetList.appendChild(li);
+      });
+      // 刪除目標時更新Cookie
+      document
+        .querySelector("#target-list")
+        .addEventListener("click", function(e) {
+          if (e.target.tagName === "LI") {
+            var target = e.target.textContent;
+            targets.splice(targets.indexOf(target), 1);
+            document.cookie = "targets=" + targets.join(",");
+            e.target.remove();
+          }
+        });
+    };
+
+    function askForCookieConsent() {
+      // Check if user has already given consent
+      var hasConsented = localStorage.getItem("cookieConsent");
+      if (hasConsented === "true") {
+        // Cookies are enabled, continue with website functionality
+        return;
+      }
+      // Ask for user's consent to enable cookies
+      var consent = confirm(
+        "本網站使用 cookie 來改善您的體驗。您同意使用 cookie 嗎？(用途:用於儲存清單的輸入資料，讓你在再次流覽本網站時能夠顯示)"
+      );
+      if (consent) {
+        // Set cookie and proceed with website functionality
+        localStorage.setItem("cookieConsent", "true");
+      } else {
+        // Disable cookies and notify the user
+        localStorage.setItem("cookieConsent", "false");
+        alert("Cookie 已被禁用。本網站的某些功能可能無法按預期工作。");
+      }
+    }
+    askForCookieConsent();
+  </script>
+
+</body>
+
+</html>
