@@ -6,304 +6,334 @@
   <title>冬平日記-學習日誌</title>
 
   <style>
-@import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
-  body {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  font-family: "Noto Sans TC", sans-serif;
-  background-color: black;
-  margin: 0px;
-  padding: 0px;
-}
+    @import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
 
-.light{
-  color:transparent;
-  font-size:20px;
-  text-shadow:-10px 10px red,-6px 6px yellow,-2px 2px #00A1ff,2px -2px blue;
-  filter:blur(6px);
-  opacity: 0.7;
-  Z-index:500;
-  mix-blend-mode: lighten;
-}
+    body {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      font-family: "Noto Sans TC", sans-serif;
+      background-color: black;
+      margin: 0px;
+      padding: 0px;
+    }
 
-#L1{
-  position:fixed;
-  right:7%;
-  bottom:12%;
-}
+    /*光效*/
+    .light {
+      color: transparent;
+      font-size: 20px;
+      text-shadow: -10px 10px red, -6px 6px yellow, -2px 2px #00A1ff, 2px -2px blue;
+      filter: blur(6px);
+      opacity: 0.7;
+      Z-index: -111;
+      mix-blend-mode: plus-lighter;
+    }
 
-#L2{
-  position:fixed;
-  left:3%;
-  top:5%;
-  font-size:55px;
-  filter:blur(5px);
-  font-weight:light;
-  opacity: 0.8;
-}
+    #L1 {
+      position: fixed;
+      right: 7%;
+      bottom: 12%;
+    }
 
-    
-/*菜單*/
-.menu{
-  position:fixed;
-  padding:15px;  
-  top:0;
-  right:0;
-  Z-index:997;
-  color:gray;
-  font-size:24px;
-  font-weight:bold;
-  cursor:pointer;
-  text-shadow: 0px 0px 1px rgba(0,0,0,0.9);
-  }
+    #L2 {
+      position: fixed;
+      left: 3%;
+      top: 5%;
+      font-size: 55px;
+      filter: blur(5px);
+      font-weight: light;
+      opacity: 0.8;
+    }
 
-.sidenav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 999;
-  top: 0;
-  right: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  padding-top: 60px;
-}
+    #L3 {
+      position: fixed;
+      left: 8%;
+      bottom: 5%;
+      font-size: 70px;
+      filter: blur(8px);
+      font-weight: light;
+      opacity: 0.1;
+      text-shadow: 0px 0px red, 20px 0px yellow, 40px 0px #00A1ff, 60px 0px blue;
+      transform: scale(1.8) rotatez(-40deg);
+    }
 
-.sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 20px;
-  color: #818181;
-  display: block;
-}
+    #L4 {
+      position: fixed;
+      right: 25%;
+      top: 14%;
+      font-size: 20px;
+      filter: blur(10px);
+      font-weight: light;
+      opacity: 0.8;
+      text-shadow: 0px 0px red, 10px 0px yellow, 20px 0px #00A1ff, 30px 0px blue;
+      transform: scale(1.8) rotatez(-40deg);
+    }
 
-.sidenav a:hover {
-  color: #f1f1f1;
-}
+    /*菜單*/
+    .menu {
+      position: fixed;
+      padding: 15px;
+      top: 0;
+      right: 0;
+      Z-index: 997;
+      color: gray;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+      text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.9);
+    }
 
-.sidenav .closebtn {
-  position: absolute;
-  top: 2px;
-  right: 7px;
-  font-size: 36px;
-}
+    .sidenav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 999;
+      top: 0;
+      right: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      padding-top: 60px;
+    }
 
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
+    .sidenav a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 20px;
+      color: #818181;
+      display: block;
+    }
 
-/*背景圖片*/
-.img {
-  transition: transform 0.1s;
-  background-image: url("https://images.unsplash.com/photo-1610926950541-fb98c47896d4?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1NzgyNzR8&ixlib=rb-4.0.3&q=85");
-  filter: invert(0) grayscale(1);
-  background-size: cover;
-  position: fixed;
-  top: -80px;
-  left: -20px;
-  height: 150vh;
-  width: 120%;
-  z-index: -111;
-  opacity: 0.2;
-}
+    .sidenav a:hover {
+      color: #f1f1f1;
+    }
 
-#toggleButton {
-  filter: none;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  margin: 10px;
-  padding: 3px 8px 4px;
-  color: black;
-  font-size: 10px;
-  border: none;
-  border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(4px);
-  z-index: 15;
-}
+    .sidenav .closebtn {
+      position: absolute;
+      top: 2px;
+      right: 7px;
+      font-size: 36px;
+    }
 
-.transparent {
-  filter: blur(30px);
-}
+    @media screen and (max-height: 450px) {
+      .sidenav {
+        padding-top: 15px;
+      }
 
-/*標題背景*/
-.top{
-  position:relative;
-  overflow:hidden;
-  min-height:100px;
-}
+      .sidenav a {
+        font-size: 18px;
+      }
+    }
 
-.top-img{
-  position:absolute;
-  top:0;
-  width:100%;
-  height:155%;
-  Z-index:-5;
-  background-image: url("https://images.unsplash.com/photo-1502740289988-04eddde1556a?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1ODczNjF8&ixlib=rb-4.0.3&q=85");
-  background-size:cover;
-  background-position:center;
-  filter: invert(1) grayscale(1) contrast(500%);
-  transform: scaleY(-1);
-  mix-blend-mode: difference;
-  opacity: 0.5;
-}
+    /*背景圖片*/
+    .img {
+      transition: transform 0.1s;
+      background-image: url("https://images.unsplash.com/photo-1610926950541-fb98c47896d4?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1NzgyNzR8&ixlib=rb-4.0.3&q=85");
+      filter: invert(0) grayscale(1);
+      background-size: cover;
+      position: fixed;
+      top: -80px;
+      left: -20px;
+      height: 150vh;
+      width: 120%;
+      z-index: -111;
+      opacity: 0.2;
+    }
 
-/*滑動圖片*/
-.photo {
-  white-space: nowrap;
-  scroll-snap-type: x;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  height: 200px;
-  text-align: left;
-  padding:10px 0px 0px;
-}
+    #toggleButton {
+      filter: none;
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      margin: 10px;
+      padding: 3px 8px 4px;
+      color: black;
+      font-size: 10px;
+      border: none;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(4px);
+      z-index: 15;
+    }
 
-.photo img{
-  height:100%;
-  display: inline-block;
-  white-space: normal;
-}
+    .transparent {
+      filter: blur(30px);
+    }
 
-.title {
-  font-family: "Noto Sans TC", serif;
-  font-size: 20px;
-  letter-spacing: 2px;
-  font-weight: bold;
-  margin: 20px;
-  color: #ff8584;
-}
+    /*標題背景*/
+    .top {
+      position: relative;
+      overflow: hidden;
+      min-height: 100px;
+    }
 
-#學習日誌::before{
-  content: "Learning log";
-  position: absolute;
-  transform: translate(40px, 13px);
-  z-index: -1;
-  color:gray;
-  font-size:15px;
-  font-weight: lighter;
-  font-style: italic;
-  font-family: "Noto Sans TC", sans-serif;
-  }
+    .top-img {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 155%;
+      Z-index: -5;
+      background-image: url("https://images.unsplash.com/photo-1502740289988-04eddde1556a?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1ODczNjF8&ixlib=rb-4.0.3&q=85");
+      background-size: cover;
+      background-position: center;
+      filter: invert(1) grayscale(1) contrast(500%);
+      transform: scaleY(-1);
+      mix-blend-mode: difference;
+      opacity: 0.5;
+    }
 
-/*收合段落*/
-.list{
-  padding:0px 20px 0px;
-  color:rgb(200,200,200);
-}
+    /*滑動圖片*/
+    .photo {
+      white-space: nowrap;
+      scroll-snap-type: x;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      height: 200px;
+      text-align: left;
+      padding: 10px 0px 0px;
+    }
 
-details{
-  margin:0px 0px 15px;
-}
+    .photo img {
+      height: 100%;
+      display: inline-block;
+      white-space: normal;
+    }
 
-summary{
-  color:gray;
-}
+    .title {
+      font-family: "Noto Sans TC", serif;
+      font-size: 20px;
+      letter-spacing: 2px;
+      font-weight: bold;
+      margin: 20px;
+      color: #ff8584;
+    }
 
-summary span{
-  position: relative;
-  font-size: 18px;
-  letter-spacing: 2px;
-  color: white;
-  font-weight: nomal;
-  background-color: transparent;
-  border: none;
-  z-index: 0;
-}
+    #學習日誌::before {
+      content: "Learning log";
+      position: absolute;
+      transform: translate(40px, 13px);
+      z-index: -1;
+      color: gray;
+      font-size: 15px;
+      font-weight: lighter;
+      font-style: italic;
+      font-family: "Noto Sans TC", sans-serif;
+    }
 
-summary span::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 45%;
-  transform: translate(5px, 10px);
-  background-image: url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="rgb(255,133,132)" fill-opacity="0.5" fill-rule="evenodd"%3E%3Cpath d="M0 40L40 0H20L0 20M40 40V20L20 40"/%3E%3C/g%3E%3C/svg%3E');
-  background-repeat: repeat;
-  background-size: 7px;
-  z-index: -1;
-}
+    /*收合段落*/
+    .list {
+      padding: 0px 20px 0px;
+      color: rgb(200, 200, 200);
+    }
 
-/*頁尾*/
-footer {
-  background-color: black;
-  padding: 20px;
-  color: white;
-  text-align: center;
-  font-family: "Noto Sans TC", serif;
-}
+    details {
+      margin: 0px 0px 15px;
+    }
 
-.info {
-  text-align: left;
-  font-family: "Noto Sans TC", sans-serif;
-  display: flex;
-  flex-wrap: wrap;
-  color: gray;
-}
+    summary {
+      color: gray;
+    }
 
-.info-title {
-  font-weight: bold;
-  color: white;
-}
+    summary span {
+      position: relative;
+      font-size: 18px;
+      letter-spacing: 2px;
+      color: white;
+      font-weight: nomal;
+      background-color: transparent;
+      border: none;
+      z-index: 0;
+    }
 
-.info-L {
-  flex: 50%;
-}
+    summary span::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 45%;
+      transform: translate(5px, 10px);
+      background-image: url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="rgb(255,133,132)" fill-opacity="0.5" fill-rule="evenodd"%3E%3Cpath d="M0 40L40 0H20L0 20M40 40V20L20 40"/%3E%3C/g%3E%3C/svg%3E');
+      background-repeat: repeat;
+      background-size: 7px;
+      z-index: -1;
+    }
 
-.info-R {
-  flex: 50%;
-}
+    /*頁尾*/
+    footer {
+      background-color: black;
+      padding: 20px;
+      color: white;
+      text-align: center;
+      font-family: "Noto Sans TC", serif;
+    }
 
-.info span {
-  display: block;
-  font-size: 14px;
-  padding: 2px 0px 2px;
-}
+    .info {
+      text-align: left;
+      font-family: "Noto Sans TC", sans-serif;
+      display: flex;
+      flex-wrap: wrap;
+      color: gray;
+    }
 
-footer hr {
-  border: 0.5px rgba(255, 255, 255, 0.4) solid;
-}
+    .info-title {
+      font-weight: bold;
+      color: white;
+    }
 
-/* width */
-@media screen and (min-width: 768px) {
-  ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
+    .info-L {
+      flex: 50%;
+    }
 
-  /* Track */
-  ::-webkit-scrollbar-track {
-    border: none;
-    border-radius: 10px;
-  }
+    .info-R {
+      flex: 50%;
+    }
 
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: rgba(102, 102, 102, 0.5);
-    border-radius: 10px;
-  }
+    .info span {
+      display: block;
+      font-size: 14px;
+      padding: 2px 0px 2px;
+    }
 
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgba(66, 66, 66, 0.5);
-  }
+    footer hr {
+      border: 0.5px rgba(255, 255, 255, 0.4) solid;
+    }
+
+    /* width */
+    @media screen and (min-width: 768px) {
+      ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        border: none;
+        border-radius: 10px;
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: rgba(102, 102, 102, 0.5);
+        border-radius: 10px;
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(66, 66, 66, 0.5);
+      }
   </style>
 </head>
 
 <body>
   <span class="menu" onclick="openNav()">&#9776</span>
-  
+
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="https://n0velsss.github.io/%E5%86%AC%E5%B9%B3%E6%97%A5%E8%A8%98/%E4%B8%BB%E9%A0%81.html#">主頁</a>
     <a href="https://n0velsss.github.io/%E5%86%AC%E5%B9%B3%E6%97%A5%E8%A8%98/%E5%AD%B8%E7%BF%92%E6%97%A5%E8%AA%8C.html#">學習日誌</a>
-    <a href="#">作品一覽</a>
-    <a href="#"></a>
+    <a href="https://n0velsss.github.io/%E5%86%AC%E5%B9%B3%E6%97%A5%E8%A8%98/%E4%BD%9C%E5%93%81%E4%B8%80%E8%A6%BD.html">作品一覽</a>
+    <a href="https://n0velsss.github.io/%E5%86%AC%E5%B9%B3%E6%97%A5%E8%A8%98/%E4%BB%BB%E5%8B%99%E5%8F%8A%E8%A8%88%E6%99%82.html">任務及計時</a>
   </div>
 
   <button id="toggleButton">隱藏</button>
@@ -312,6 +342,8 @@ footer hr {
 
   <span class="light" id="L1">▓</span>
   <span class="light" id="L2">╭</span>
+  <span class="light" id="L3">i</span>
+  <span class="light" id="L4">|</span>
 
   <div class="top">
     <br><span class="title" id="學習日誌">學習日誌</span>
@@ -439,4 +471,4 @@ footer hr {
 
 </body>
 
-      </html>
+</html>
