@@ -1,0 +1,556 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="">
+  <title>冬平日記-作品一覽</title>
+
+  <style>
+@import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
+
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: "Noto Sans TC", sans-serif;
+  background-color: gray;
+  margin: 0px;
+  padding: 0px;
+}
+
+ audio {
+  position: absolute;
+  mix-blend-mode: different;
+  opacity: 0.5;
+  width: calc(100% - 20px);
+  height:25px;
+  top: calc(100vh - 40px);
+  left: 10px;
+  z-index: 11;
+}
+
+/* 光效 */
+.light{
+  color:transparent;
+  font-size:20px;
+  text-shadow:-10px 10px red,-6px 6px yellow,-2px 2px #00A1ff,2px -2px blue;
+  filter:blur(6px);
+  opacity: 0.7;
+  z-index: -111;
+  mix-blend-mode: plus-lighter;
+}
+
+#L1{
+  position:fixed;
+  right:7%;
+  bottom:12%;
+}
+
+#L2{
+  position:fixed;
+  left:3%;
+  top:5%;
+  font-size:55px;
+  filter:blur(5px);
+  font-weight:light;
+  opacity: 0.8;
+}
+
+#L3{
+  position:fixed;
+  left:8%;
+  bottom:5%;
+  font-size:70px;
+  filter:blur(15px);
+  font-weight:light;
+  opacity: 0.3;
+  text-shadow:0px 0px red,20px 0px yellow,40px 0px #00A1ff,60px 0px blue;
+  transform:scale(1.8) rotatez(-40deg);
+}
+
+#L4{
+  position:fixed;
+  right:25%;
+  top:14%;
+  font-size:20px;
+  filter:blur(8px);
+  font-weight:light;
+  opacity: 1;
+  text-shadow:0px 0px red,10px 0px yellow,20px 0px #00A1ff,30px 0px blue;
+  transform:scale(1.8) rotatez(-40deg);
+}
+
+
+
+.img2{
+  filter: contrast(1.01) blur(3px);
+  position: fixed;
+  bottom: 10px;
+  left: 20px;
+  width: 100px;
+  z-index: -111;
+  opacity: 0.5;
+  mix-blend-mode: plus-lighter;
+  animation: move2 20s infinite;
+}
+
+#img2-2{
+  position: fixed;
+  filter: contrast(1.1) blur(0px);
+  opacity: 0.2;
+  mix-blend-mode: plus-lighter;
+  animation: opacity 7s infinite;
+  animation: move2 20s infinite;
+}
+
+@keyframes move2 {
+  0%   {  
+  bottom: 10px;
+  left: 20px;}
+  20%  {  
+  bottom: 15px;
+  left: 16px;}
+  60%  {  
+  bottom: 6px;
+  left: 22px;}
+  80%  {  
+  bottom: 8px;
+  left: 17px;}
+  100% {  
+  bottom: 10px;
+  left: 20px;}
+}
+
+@keyframes opacity2 {
+  0%   {opacity: 0.2;}
+  25%  {opacity: 0.05;}
+  75%  {opacity: 0.15}
+  100% {opacity: 0.2;}
+}
+
+.img3{
+  filter:grayscale(1) contrast(1.5) blur(3px);
+  background-size: 100%;
+  position: fixed;
+  top: 5px;
+  right: 15px;
+  width: 100px;
+  z-index: -111;
+  opacity: 0.5;
+  mix-blend-mode: plus-lighter;
+  animation: move3 25s infinite;
+}
+
+#img3-2{
+  filter: grayscale(1) contrast(1.5) blur(0px);
+  opacity: 0.15;
+  animation: opacity3 5s infinite;
+  animation: move3 25s infinite;
+}
+
+@keyframes move3 {
+  0%   {  
+  top: 5px;
+  right: 15px;}
+  20%  {  
+  top: 0px;
+  right: 20px;}
+  60%  {  
+  top: 10px;
+  right: 8px;}
+  80%  {  
+  top: 0px;
+  right: 10px;}
+  100% {  
+  top: 5px;
+  right: 15px;}
+}
+
+@keyframes opacity3 {
+  0%   {opacity: 0.15;}
+  25%  {opacity: 0.05;}
+  75%  {opacity: 0.1}
+  100% {opacity: 0.15;}
+}
+
+/* 菜單 */
+.menu{
+  position:fixed;
+  padding:15px;  
+  top:0;
+  right:0;
+  Z-index:997;
+  color:gray;
+  font-size:24px;
+  font-weight:bold;
+  cursor:pointer;
+  text-shadow: 0px 0px 1px rgba(0,0,0,0.9);
+  }
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 2px;
+  right: 7px;
+  font-size: 36px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+/* 背景 */
+.img {
+  transition: transform 0.1s;
+  background-image: url("https://images.unsplash.com/photo-1609357668849-f32d1dc99ee0?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTMwODYyNjR8&ixlib=rb-4.0.3&q=85");
+  filter: invert(0) grayscale(0) blur(2px);
+  background-size: cover;
+  position: fixed;
+  top: -80px;
+  left: -20px;
+  height: 150vh;
+  width: 120%;
+  z-index: -111;
+  opacity: 0.3;
+}
+
+#toggleButton {
+  filter: none;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 10px;
+  padding: 3px 8px 4px;
+  color: black;
+  font-size: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 15;
+}
+
+.transparent {
+  filter: blur(30px);
+}
+
+/**/
+.top{
+  position:relative;
+  overflow:hidden;
+  min-height:100px;
+}
+
+.top-img{
+  position:absolute;
+  top:0;
+  width:100%;
+  height:155%;
+  Z-index:-5;
+  background-image: url("https://images.unsplash.com/photo-1502740289988-04eddde1556a?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1ODczNjF8&ixlib=rb-4.0.3&q=85");
+  background-size:cover;
+  background-position:center;
+  filter: invert(1) grayscale(1) contrast(400%);
+  transform: scaleY(-1);
+  mix-blend-mode: plus-lighter;
+  opacity: 0.3;
+}
+
+/**/
+.photo {
+  white-space: nowrap;
+  scroll-snap-type: x;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  height: 200px;
+  text-align: left;
+  padding:10px 0px 0px;
+}
+
+.photo img{
+  height:100%;
+  display: inline-block;
+  white-space: normal;
+}
+
+/**/
+.title {
+  font-family: "Noto Sans TC", serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  margin: 20px;
+  color: #ffA984;
+}
+
+#學習日誌::before{
+  content: "Portfolio";
+  position: absolute;
+  transform: translate(40px, 13px);
+  z-index: -1;
+  color:lightgray;
+  font-size:15px;
+  font-weight: lighter;
+  font-style: italic;
+  font-family: "Noto Sans TC", sans-serif;
+  }
+
+/**/
+.list{
+  padding:0px 20px 0px;
+  color:white;
+  position:relative;
+}
+
+details{
+  margin:0px 0px 15px;
+}
+
+summary{
+  color:lightgray;
+}
+
+summary span{
+  position: relative;
+  font-size: 18px;
+  letter-spacing: 2px;
+  color: white;
+  font-weight: nomal;
+  background-color: transparent;
+  border: none;
+  z-index: 0;
+}
+
+summary span::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 45%;
+  transform: translate(5px, 10px);
+  background-image: url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="rgb(255,169,132)" fill-opacity="0.7" fill-rule="evenodd"%3E%3Cpath d="M0 40L40 0H20L0 20M40 40V20L20 40"/%3E%3C/g%3E%3C/svg%3E');
+  background-repeat: repeat;
+  background-size: 7px;
+  z-index: -1;
+}
+
+/**/
+footer {
+  background-color: black;
+  padding: 20px;
+  color: white;
+  text-align: center;
+  font-family: "Noto Sans TC", serif;
+}
+
+.info {
+  text-align: left;
+  font-family: "Noto Sans TC", sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  color: gray;
+}
+
+.info-title {
+  font-weight: bold;
+  color: white;
+}
+
+.info-L {
+  flex: 50%;
+}
+
+.info-R {
+  flex: 50%;
+}
+
+.info span {
+  display: block;
+  font-size: 14px;
+  padding: 2px 0px 2px;
+}
+
+footer hr {
+  border: 0.5px rgba(255, 255, 255, 0.4) solid;
+}
+
+/**/
+@media screen and (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border: none;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(102, 102, 102, 0.5);
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(66, 66, 66, 0.5);
+  }
+}
+  </style>
+</head>
+
+<body>
+  <span class="menu" onclick="openNav()">&#9776</span>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="https://n0velsss.github.io/冬平日記
+/主頁.html">主頁</a>
+    <a href="#">學習日誌</a>
+    <a href="#">作品一覽</a>
+    <a href="#">任務及計時</a>
+    <audio controls autoplay loop>
+      <source src="https://n0velsss.github.io/media/audio/Underwater%20Exploration%20-%20Godmode.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <button id="toggleButton">隱藏</button>
+
+  <div class="img"></div>
+  <div>
+    <img class="img2" src="https://images.unsplash.com/photo-1578684620114-e5d38ff1d542?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTMyNzQ1MTB8&ixlib=rb-4.0.3&q=80&w=400">
+    <img class="img2" id="img2-2" src="https://images.unsplash.com/photo-1578684620114-e5d38ff1d542?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTMyNzQ1MTB8&ixlib=rb-4.0.3&q=80&w=400">
+  </div>
+  <div>
+    <img class="img3" src="https://images.unsplash.com/photo-1624937650780-8ee85bbb83a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTMyNzIyNzZ8&ixlib=rb-4.0.3&q=80&w=400">
+    <img class="img3" id="img3-2" src="https://images.unsplash.com/photo-1624937650780-8ee85bbb83a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTMyNzIyNzZ8&ixlib=rb-4.0.3&q=80&w=400">
+  </div>
+
+  <span class="light" id="L1">▓</span>
+  <span class="light" id="L2">╭</span>
+  <span class="light" id="L3">i</span>
+  <span class="light" id="L4">|</span>
+
+  <div class="top">
+    <br><span class="title" id="學習日誌">作品一覽</span>
+    <div class="top-img"></div>
+  </div>
+
+  <div class="list" style="min-height:85vh">
+    <details>
+      <summary><span>一些東西<span></summary>
+
+      <div class="photo">
+        <img src="https://images.unsplash.com/photo-1605714389837-828bc2b1e6c7?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTMyNzcxMTN8&ixlib=rb-4.0.3&q=85">
+        <img src="https://images.unsplash.com/photo-1600003118950-e1a4afbf309b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1ODIzMDF8&ixlib=rb-4.0.3&q=80&w=400">
+        <img src="https://images.unsplash.com/photo-1578684620114-e5d38ff1d542?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTMyNzQ1MTB8&ixlib=rb-4.0.3&q=80&w=400">
+      </div>
+
+      <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
+    </details>
+    <details>
+      <summary><span>Epcot Center<span></summary>
+      <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
+    </details>
+
+    <details>
+      <summary><span>一些東西<span></summary>
+
+      <div class="photo">
+        <img src="https://images.unsplash.com/photo-1578684620114-e5d38ff1d542?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTMyNzQ1MTB8&ixlib=rb-4.0.3&q=85">
+        <img src="https://images.unsplash.com/photo-1600003118950-e1a4afbf309b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1ODIzMDF8&ixlib=rb-4.0.3&q=80&w=400">
+        <img src="">
+      </div>
+
+      <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
+    </details>
+    <br><br><br>
+  </div>
+
+  <footer>
+    <div class="info">
+      <div class="info-L">
+        <span class="info-title">需要幫忙？</span>
+        <span onclick="location.href='https://zh.m.wikipedia.org/zh-hk/BDSM'">怎麽是BDSM？</span>
+        <span onclick="location.href='https://en.m.wikipedia.org/wiki/Bondage_(BDSM)'">怎麽是繩縛？</span>
+        <span onclick="location.href='https://zh.m.wikipedia.org/zh-hk/%E6%80%A7%E5%90%8C%E6%84%8F'">怎麽是性同意？</span>
+      </div>
+      <div class="info-R">
+        <span class="info-title">社交平台</span>
+        <span onclick="location.href='https://m.weibo.cn/u/7555803164?t=0&luicode=10000011&lfid=231583'">微博</span>
+      </div>
+    </div>
+    <hr>
+    <span>冬 平 日 記</span>
+
+  </footer>
+
+  <!--菜單-->
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
+  <!--隱藏-->
+  <script>
+    var isTransparent = false;
+    var toggleButton = document.getElementById("toggleButton");
+    toggleButton.addEventListener("click", function() {
+      var elements = document.querySelectorAll("body *");
+      if (isTransparent) {
+        for (var i = 0; i < elements.length; i++) {
+          elements[i].classList.remove("transparent");
+        }
+      } else {
+        for (var i = 0; i < elements.length; i++) {
+          elements[i].classList.add("transparent");
+        }
+      }
+      isTransparent = !isTransparent;
+    });
+    // 檢查裝置是否支援傾斜事件
+    if ('DeviceOrientationEvent' in window) {
+      window.addEventListener('deviceorientation', handleOrientation);
+    }
+
+    function handleOrientation(event) {
+      // 取得傾斜角度
+      var tiltLR = -event.gamma / 4; // 左右傾斜
+      var tiltFB = -event.beta / 5; // 前後傾斜
+      // 根據傾斜角度移動div
+      var div = document.querySelector('.img');
+      div.style.transform = 'translate(' + tiltLR + 'px, ' + tiltFB + 'px)';
+    }
+  </script>
+</body>
+
+  </html>
