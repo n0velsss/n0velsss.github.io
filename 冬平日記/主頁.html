@@ -7,342 +7,366 @@
 
   <style>
     @import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
+  body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: "Noto Sans TC", sans-serif;
+  background-color: black;
+  margin: 0px;
+  padding: 0px;
+}
 
-    body {
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-      font-family: "Noto Sans TC", sans-serif;
-      background-color: black;
-      margin: 0px;
-      padding: 0px;
-    }
+.menu {
+  position: fixed;
+  padding: 15px;
+  top: 0;
+  right: 0;
+  z-index: 997;
+  color: gray;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.9);
+}
 
-    .menu {
-      position: fixed;
-      padding: 15px;
-      top: 0;
-      right: 0;
-      Z-index: 997;
-      color: gray;
-      font-size: 24px;
-      font-weight: bold;
-      cursor: pointer;
-      text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.9);
-    }
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 60px;
+}
 
-    .sidenav {
-      height: 100%;
-      width: 0;
-      position: fixed;
-      z-index: 999;
-      top: 0;
-      right: 0;
-      background-color: #111;
-      overflow-x: hidden;
-      padding-top: 60px;
-    }
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+}
 
-    .sidenav a {
-      padding: 8px 8px 8px 32px;
-      text-decoration: none;
-      font-size: 20px;
-      color: #818181;
-      display: block;
-    }
+.sidenav a:hover {
+  color: #f1f1f1;
+}
 
-    .sidenav a:hover {
-      color: #f1f1f1;
-    }
+.sidenav .closebtn {
+  position: absolute;
+  top: 2px;
+  right: 7px;
+  font-size: 36px;
+}
 
-    .sidenav .closebtn {
-      position: absolute;
-      top: 2px;
-      right: 7px;
-      font-size: 36px;
-    }
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
 
-    @media screen and (max-height: 450px) {
-      .sidenav {
-        padding-top: 15px;
-      }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
 
-      .sidenav a {
-        font-size: 18px;
-      }
-    }
+.img {
+  transition: transform 0.1s;
+  background-image: url("https://images.unsplash.com/photo-1554128012-e1bfc7170867?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTUyMzgxNjJ8&ixlib=rb-4.0.3&q=85");
+  filter: invert(1) grayscale(1);
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 101vh;
+  width: 100%;
+  z-index: -111;
+  opacity: 0.2;
+}
 
-    .img {
-      transition: transform 0.1s;
-      background-image: url("https://images.unsplash.com/photo-1490737367009-922d4a612469?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1NTI0NDR8&ixlib=rb-4.0.3&q=85");
-      filter: invert(1);
-      background-size: cover;
-      position: fixed;
-      top: -80px;
-      left: -20px;
-      height: 150vh;
-      width: 120%;
-      z-index: -111;
-      opacity: 0.15;
-    }
+#toggleButton {
+  filter: none;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 10px;
+  padding: 3px 8px 4px;
+  color: black;
+  font-size: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 15;
+}
 
-    #toggleButton {
-      filter: none;
-      position: fixed;
-      bottom: 0;
-      right: 0;
-      margin: 10px;
-      padding: 3px 8px 4px;
-      color: black;
-      font-size: 10px;
-      border: none;
-      border-radius: 10px;
-      background-color: rgba(255, 255, 255, 0.4);
-      backdrop-filter: blur(4px);
-      z-index: 15;
-    }
+.transparent {
+  filter: blur(30px);
+}
 
-    .transparent {
-      filter: blur(30px);
-    }
+header {
+  filter: brightness(0.95) contrast(1.1);
+  position: relative;
+  height: 40vh;
+  text-align: center;
+  background-color: black;
+  background-image: url("https://images.unsplash.com/photo-1598476543599-72c8a60894d7?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1NTQ5MjV8&ixlib=rb-4.0.3&q=85");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, black 60%);
+  mask-image: linear-gradient(to top, transparent 0%, black 60%);
+}
 
-    header {
-      position: relative;
-      height: 100vh;
-      text-align: center;
-      background-color: black;
-      background-image: url("https://images.unsplash.com/photo-1611427040258-a5ff6be988b4?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1NTI3NDR8&ixlib=rb-4.0.3&q=85");
-      background-size: cover;
-      background-position: center 70%;
-    }
+header span {
+  color: black;
+  font-family: "Noto Sans TC", serif;
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: 15px;
+  padding: 0px 0px 30px;
+}
 
-    header span {
-      font-family: "Noto Sans TC", serif;
-      font-size: 30px;
-      font-weight: bold;
-    }
+header audio {
+  position: absolute;
+  mix-blend-mode: multiply;
+  opacity: 1;
+  width: 100%;
+  height: 30px;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+}
 
-    header audio {
-      position: absolute;
-      mix-blend-mode: multiply;
-      opacity: 0.7;
-      width: 100%;
-      bottom: 20px;
-      left: 0;
-      right: 0;
-    }
+.bookshelf {
+  padding: 20px 0px 20px;
+  transform: translate(0px, -50px);
+  margin: 0px 0px -50px;
+}
 
-    .bookshelf {
-      padding: 20px 0px 20px;
-    }
+.area {
+  white-space: nowrap;
+  scroll-snap-type: x;
+  overflow: auto;
+  min-height: 150px;
+  font-weight: bold;
+  color: black;
+  border: none;
+  text-align: left;
+  margin: -20px 0px 0px;
+}
 
-    .area {
-      white-space: nowrap;
-      scroll-snap-type: x;
-      overflow: auto;
-      min-height: 150px;
-      font-weight: bold;
-      color: black;
-      border: none;
-      text-align: left;
-    }
+.block {
+  vertical-align: top;
+  white-space: normal;
+  display: inline-block;
+  margin: 15px;
+  text-align: left;
+}
 
-    .block {
-      vertical-align: top;
-      white-space: normal;
-      display: inline-block;
-      margin: 15px;
-      text-align: left;
-    }
+.space {
+  padding: 7px;
+}
 
-    .space {
-      padding: 7px;
-    }
+body .book {
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: "Noto Sans TC", serif;
+  letter-spacing: 2px;
+  width: 110px;
+  min-height: 150px;
+  background-color: gray;
+  border: 0.7px gray solid;
+  border-radius: 3px;
+  text-align: center;
+  box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.2), 0px 4px 8px rgba(0, 0, 0, 0.25),
+    2px 2px 2px rgba(0, 0, 0, 0.05);
+}
 
-    body .book {
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-      font-family: "Noto Sans TC", serif;
-      letter-spacing: 2px;
-      width: 110px;
-      min-height: 150px;
-      background-color: gray;
-      border: 0.7px gray solid;
-      border-radius: 3px;
-      text-align: center;
-      box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.2), 0px 4px 8px rgba(0, 0, 0, 0.25),
-        2px 2px 2px rgba(0, 0, 0, 0.05);
-    }
+.book span {
+  font-size: 18px;
+  color: white;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  margin: 10px;
+}
 
-    .book span {
-      font-size: 18px;
-      color: white;
-      writing-mode: vertical-rl;
-      text-orientation: upright;
-      margin: 10px;
-    }
+.title {
+  font-family: "Noto Sans TC", serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  margin: 20px;
+  color: #ff8584;
+  display: block;
+}
 
-    .title {
-      font-family: "Noto Sans TC", serif;
-      font-size: 20px;
-      letter-spacing: 2px;
-      font-weight: bold;
-      margin: 20px;
-      color: #ff8584;
-    }
+.name {
+  margin: 10px 0px 0px;
+  font-size: 14px;
+  display: block;
+  color: white;
+}
 
-    .name {
-      margin: 10px 0px 0px;
-      font-size: 14px;
-      display: block;
-      color: white;
-    }
+.date {
+  font-size: 12px;
+  color: gray;
+  display: block;
+}
 
-    .date {
-      font-size: 12px;
-      color: gray;
-      display: block;
-    }
+.page {
+  padding: 20px;
+  background-image: url("https://images.unsplash.com/photo-1598476543599-72c8a60894d7?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1NTQ5MjV8&ixlib=rb-4.0.3&q=85");
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+}
 
-    .page {
-      padding: 20px;
-      background-image: url("https://images.unsplash.com/photo-1598476543599-72c8a60894d7?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1NTQ5MjV8&ixlib=rb-4.0.3&q=85");
-      background-size: cover;
-      background-position: center;
-      text-align: center;
-    }
+.page-btn {
+  cursor: pointer;
+  font-family: "Noto Sans TC", serif;
+  position: relative;
+  font-size: 18px;
+  letter-spacing: 2px;
+  color: black;
+  font-weight: bold;
+  background-color: transparent;
+  border: none;
+  margin: 10px;
+  z-index: 0;
+}
 
-    .page-btn {
-      font-family: "Noto Sans TC", serif;
-      position: relative;
-      font-size: 18px;
-      letter-spacing: 2px;
-      color: black;
-      font-weight: bold;
-      background-color: transparent;
-      border: none;
-      padding: 20px;
-      z-index: 0;
-    }
+.page-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90%;
+  height: 55%;
+  transform: translate(5px, 10px);
+  background-image: url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="rgb(255,133,132)" fill-opacity="0.75" fill-rule="evenodd"%3E%3Cpath d="M0 40L40 0H20L0 20M40 40V20L20 40"/%3E%3C/g%3E%3C/svg%3E');
+  background-repeat: repeat;
+  background-size: 8px;
+  z-index: -1;
+}
 
-    .page-btn::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 70%;
-      height: 25%;
-      transform: translate(18px, 30px);
-      background-image: url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="rgb(255,133,132)" fill-opacity="0.75" fill-rule="evenodd"%3E%3Cpath d="M0 40L40 0H20L0 20M40 40V20L20 40"/%3E%3C/g%3E%3C/svg%3E');
-      background-repeat: repeat;
-      background-size: 8px;
-      z-index: -1;
-    }
+.page-btn:hover {
+  transform: scale(1.05);
+}
 
-    .page-btn:hover {
-      transform: scale(1.05);
-    }
+li::marker {
+  color: gray;
+}
 
-    .area2 {
-      scroll-snap-type: y;
-      overflow: auto;
-      height: 200px;
-      border: none;
-      padding: 0px 20px 0px;
-      margin: 0px 0px 30px;
-    }
+footer {
+  background-color: black;
+  padding: 20px;
+  color: white;
+  text-align: center;
+  font-family: "Noto Sans TC", serif;
+}
 
-    .memo-word {
-      margin: 7px 0px 15px;
-      color: #eeeeee;
-      padding: 8px;
-      border-bottom: 2px rgba(255, 255, 255, 0.6) solid;
-      list-style-type: decimal-leading-zero;
-      list-style-position: inside;
-    }
+.info {
+  text-align: left;
+  font-family: "Noto Sans TC", sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  color: gray;
+}
 
-    li::marker {
-      color: gray;
-    }
+.info-title {
+  font-weight: bold;
+  color: white;
+}
 
-    footer {
-      background-color: black;
-      padding: 20px;
-      color: white;
-      text-align: center;
-      font-family: "Noto Sans TC", serif;
-    }
+.info-L {
+  flex: 50%;
+}
 
-    .info {
-      text-align: left;
-      font-family: "Noto Sans TC", sans-serif;
-      display: flex;
-      flex-wrap: wrap;
-      color: gray;
-    }
+.info-R {
+  flex: 50%;
+}
 
-    .info-title {
-      font-weight: bold;
-      color: white;
-    }
+.info span {
+  display: block;
+  font-size: 14px;
+  padding: 2px 0px 2px;
+}
 
-    .info-L {
-      flex: 50%;
-    }
+footer hr {
+  border: 0.5px rgba(255, 255, 255, 0.4) solid;
+}
 
-    .info-R {
-      flex: 50%;
-    }
+/* width */
+@media screen and (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
 
-    .info span {
-      display: block;
-      font-size: 14px;
-      padding: 2px 0px 2px;
-    }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    border: none;
+    border-radius: 10px;
+  }
 
-    footer hr {
-      border: 0.5px rgba(255, 255, 255, 0.4) solid;
-    }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgba(102, 102, 102, 0.5);
+    border-radius: 10px;
+  }
 
-    /* width */
-    @media screen and (min-width: 768px) {
-      ::-webkit-scrollbar {
-        width: 10px;
-        height: 10px;
-      }
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(66, 66, 66, 0.5);
+  }
+}
 
-      /* Track */
-      ::-webkit-scrollbar-track {
-        border: none;
-        border-radius: 10px;
-      }
+.area3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 5;
+}
 
-      /* Handle */
-      ::-webkit-scrollbar-thumb {
-        background: rgba(102, 102, 102, 0.5);
-        border-radius: 10px;
-      }
+.grid-container {
+  columns: 3 150px;
+  column-gap: 8px;
+  width: calc(100% - 40px);
+  margin: 0px 0px 20px;
+}
 
-      /* Handle on hover */
-      ::-webkit-scrollbar-thumb:hover {
-        background: rgba(66, 66, 66, 0.5);
-      }
-    }
+.grid-container div {
+  width: 150px;
+  margin: 0px 0px 3px;
+  display: inline-block;
+  width: 100%;
+  border: solid 1px gray;
+  border-radius: 5px;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+}
 
-    #希望新世界 {
-      background-image: url("https://n0velsss.github.io/%E5%86%AC%E5%B9%B3%E6%97%A5%E8%A8%98/media/img/%E7%84%A1%E6%A8%99%E9%A1%8C14_20240422175251.png");
-      background-size: cover;
-      background-position: center;
-    }
+.grid-container p {
+  z-index: 5;
+  text-align: left;
+  color: white;
+  overflow: auto;
+  padding: 5px 15px 5px;
+}
 
-    #如此低俗的我 {
-      background-image: url("https://n0velsss.github.io/%E5%86%AC%E5%B9%B3%E6%97%A5%E8%A8%98/media/img/%E7%84%A1%E6%A8%99%E9%A1%8C18_20240428200506.png");
-      background-size: cover;
-      background-position: center;
-    }
   </style>
 </head>
 
@@ -363,7 +387,7 @@
   <div class="img"></div>
 
   <header>
-    <br><br><span>冬 平 日 記</span>
+    <br><br><span>冬平日記</span>
     <audio controls autoplay loop>
       <source src="https://n0velsss.github.io/media/audio/OB1%20-%20RalphReal.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
@@ -375,18 +399,18 @@
     <div class="area">
       <span class="space"></span>
       <div class="block">
-        <div class="book" id="希望新世界" onclick="location.href='https://ebook.longmabook.com/?act=showpaper&paperid=8232271'">
-          <span> </span>
+        <div class="book" id="" onclick="location.href=''">
+          <span>一．</span>
         </div>
-        <span class="name">梁冬平</span>
-        <span class="date">22/04/2024</span>
+        <span class="name">???</span>
+        <span class="date">??/??/2024</span>
       </div>
       <div class="block">
-        <div class="book" id="如此低俗的我" onclick="location.href='https://ebook.longmabook.com/?act=showpaper&paperid=8242837'">
-          <span></span>
+        <div class="book" id="" onclick="location.href=''">
+          <span>二．</span>
         </div>
-        <span class="name">梁冬平</span>
-        <span class="date">28/04/2024</span>
+        <span class="name">???</span>
+        <span class="date">??/??/2024</span>
       </div>
       <div class="block">
         <div class="book" id="" onclick="location.href=''">
@@ -426,74 +450,78 @@
   </div>
 
   <div class="memo">
-    <br><span class="title">便箋</span>
-    <ul class="area2">
-      <li class="memo-word">你好，我的小説已經上線了！請大家多多支持，謝謝。<br>30/04/2024</li>
-      <li class="memo-word">456</li>
-      <li class="memo-word">789</li>
-      <li class="memo-word">000</li>
-      <li class="memo-word">123</li>
-      <li class="memo-word">456</li>
-      <li class="memo-word">789</li>
-      <li class="memo-word">000</li>
-    </ul>
-  </div>
 
-  <footer>
-    <div class="info">
-      <div class="info-L">
-        <span class="info-title">需要幫忙？</span>
-        <span onclick="location.href='https://zh.m.wikipedia.org/zh-hk/BDSM'">怎麽是BDSM？</span>
-        <span onclick="location.href='https://en.m.wikipedia.org/wiki/Bondage_(BDSM)'">怎麽是繩縛？</span>
-        <span onclick="location.href='https://zh.m.wikipedia.org/zh-hk/%E6%80%A7%E5%90%8C%E6%84%8F'">怎麽是性同意？</span>
-      </div>
-      <div class="info-R">
-        <span class="info-title">社交平台</span>
-        <span onclick="location.href='https://m.weibo.cn/u/7555803164?t=0&luicode=10000011&lfid=231583'">微博</span>
+    <span class="title">便箋</span>
+    <div class="area3">
+
+      <div class="grid-container">
+        <div>
+          <p>"I'm so happy today!""I'm so happy today!""I'm so happy today!""I'm so happy today!""I'm so happy today!""I'm so happy today!""I'm so happy today!""I'm so happy today!"</p>
+        </div>
+        <div>
+          <p>"I'm so happy today""I'm so happy today!"</p>
+        </div>   
+        <div>
+          <p>"I'm sppy today!""I'm so happy ay!""I'm so happy today!""I'm so happy today!""I'm so happy today!""I'm so happy today!"</p>
+        </div>
+        <div>
+          <p>"I'm so I'm so happy today!"</p>
+        </div>
+        <div>
+          <p>"I'm so happy today""I'm so happy today!"</p>
+        </div>
+        <div>
+          <p>"I'm so happy today!""I'm say!""I'm so happy today!""I'm so happy today!""I'm so happy today!""I'm so happy today!""I'm so happy today!"</p>
+        </div>
       </div>
     </div>
-    <hr>
-    <span>冬 平 日 記</span>
 
-  </footer>
+    <footer>
+      <div class="info">
+        <div class="info-L">
+          <span class="info-title">需要幫忙？</span>
+          <span onclick="location.href='https://zh.m.wikipedia.org/zh-hk/BDSM'">怎麽是BDSM？</span>
+          <span onclick="location.href='https://en.m.wikipedia.org/wiki/Bondage_(BDSM)'">怎麽是繩縛？</span>
+          <span onclick="location.href='https://zh.m.wikipedia.org/zh-hk/%E6%80%A7%E5%90%8C%E6%84%8F'">怎麽是性同意？</span>
+        </div>
+        <div class="info-R">
+          <span class="info-title">社交平台</span>
+          <span onclick="location.href='https://m.weibo.cn/u/7555803164?t=0&luicode=10000011&lfid=231583'">微博</span>
+        </div>
+      </div>
+      <hr>
+      <span>冬 平 日 記</span>
 
-  <script>
-    function openNav() {
-      document.getElementById("mySidenav").style.width = "250px";
-    }
+    </footer>
 
-    function closeNav() {
-      document.getElementById("mySidenav").style.width = "0";
-      p
-    }
-    var isTransparent = false;
-    var toggleButton = document.getElementById("toggleButton");
-    toggleButton.addEventListener("click", function() {
-      var elements = document.querySelectorAll("body *");
-      if (isTransparent) {
-        for (var i = 0; i < elements.length; i++) {
-          elements[i].classList.remove("transparent");
-        }
-      } else {
-        for (var i = 0; i < elements.length; i++) {
-          elements[i].classList.add("transparent");
-        }
+    <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
       }
-      isTransparent = !isTransparent;
-    });
-    // 檢查裝置是否支援傾斜事件
-    if ('DeviceOrientationEvent' in window) {
-      window.addEventListener('deviceorientation', handleOrientation);
-    }
 
-    function handleOrientation(event) {
-      // 取得傾斜角度
-      var tiltLR = -event.gamma / 4; // 左右傾斜
-      var tiltFB = -event.beta / 5; // 前後傾斜
-      // 根據傾斜角度移動div
-      var div = document.querySelector('.img');
-      div.style.transform = 'translate(' + tiltLR + 'px, ' + tiltFB + 'px)';
-    }
-  </script>
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        p
+      }
+      var isTransparent = false;
+      var toggleButton = document.getElementById("toggleButton");
+      toggleButton.addEventListener("click", function() {
+        var elements = document.querySelectorAll("body *");
+        if (isTransparent) {
+          for (var i = 0; i < elements.length; i++) {
+            elements[i].classList.remove("transparent");
+          }
+        } else {
+          for (var i = 0; i < elements.length; i++) {
+            elements[i].classList.add("transparent");
+          }
+        }
+        isTransparent = !isTransparent;
+      });
+      // 檢查裝置是否支援傾斜事件
+      if ('DeviceOrientationEvent' in window) {
+        window.addEventListener('deviceorientation', handleOrientation);
+      }
+    </script>
 
 </html>
