@@ -1,0 +1,65 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="">
+  <title>hi-website</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    #toggleButton {
+      filter: none;
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      margin: 10px;
+      padding: 3px 8px 4px;
+      color: black;
+      font-size: 10px;
+      border: none;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(4px);
+      z-index: 15;
+    }
+
+    .transparent {
+      filter: blur(30px);
+    }
+
+    iframe {
+      width: 100%;
+      height: 100vh
+    }
+  </style>
+</head>
+
+<body>
+  <button id="toggleButton">hi :)</button>
+  <iframe src="https://www.google.com.hk/?hl=zh-HK"></iframe>
+
+  <script>
+    var isTransparent = false;
+    var toggleButton = document.getElementById("toggleButton");
+    toggleButton.addEventListener("click", function() {
+      var elements = document.querySelectorAll("body *");
+      if (isTransparent) {
+        for (var i = 0; i < elements.length; i++) {
+          elements[i].classList.remove("transparent");
+        }
+      } else {
+        for (var i = 0; i < elements.length; i++) {
+          elements[i].classList.add("transparent");
+        }
+      }
+      isTransparent = !isTransparent;
+    });
+  </script>
+</body>
+
+</html>
