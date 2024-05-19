@@ -6,7 +6,7 @@
   <title>冬平日記-學習日誌</title>
 
   <style>
-    @import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
+        @import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
 
     body {
       -webkit-user-select: none;
@@ -19,57 +19,6 @@
       padding: 0px;
     }
 
-    /*光效*/
-    .light {
-      color: transparent;
-      font-size: 20px;
-      text-shadow: -10px 10px red, -6px 6px yellow, -2px 2px #00A1ff, 2px -2px blue;
-      filter: blur(6px);
-      opacity: 0.7;
-      Z-index: -111;
-      mix-blend-mode: plus-lighter;
-    }
-
-    #L1 {
-      position: fixed;
-      right: 7%;
-      bottom: 12%;
-    }
-
-    #L2 {
-      position: fixed;
-      left: 3%;
-      top: 5%;
-      font-size: 55px;
-      filter: blur(5px);
-      font-weight: light;
-      opacity: 0.8;
-    }
-
-    #L3 {
-      position: fixed;
-      left: 8%;
-      bottom: 5%;
-      font-size: 70px;
-      filter: blur(8px);
-      font-weight: light;
-      opacity: 0.1;
-      text-shadow: 0px 0px red, 20px 0px yellow, 40px 0px #00A1ff, 60px 0px blue;
-      transform: scale(1.8) rotatez(-40deg);
-    }
-
-    #L4 {
-      position: fixed;
-      right: 25%;
-      top: 14%;
-      font-size: 20px;
-      filter: blur(10px);
-      font-weight: light;
-      opacity: 0.8;
-      text-shadow: 0px 0px red, 10px 0px yellow, 20px 0px #00A1ff, 30px 0px blue;
-      transform: scale(1.8) rotatez(-40deg);
-    }
-
     /*菜單*/
     .menu {
       position: fixed;
@@ -77,7 +26,7 @@
       top: 0;
       right: 0;
       Z-index: 997;
-      color: gray;
+      color: white;
       font-size: 24px;
       font-weight: bold;
       cursor: pointer;
@@ -156,111 +105,273 @@
       z-index: 15;
     }
 
-    .transparent {
+.transparent {
       filter: blur(30px);
     }
 
-    /*標題背景*/
-    .top {
-      position: relative;
-      overflow: hidden;
-      min-height: 100px;
-    }
+.title {
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  margin: 15px 15px 5px;
+  color: #ff8584;
+  color: white;
+  display: block;
+}
 
-    .top-img {
-      position: absolute;
-      top: 0;
-      width: 100%;
-      height: 155%;
-      Z-index: -5;
-      background-image: url("https://images.unsplash.com/photo-1502740289988-04eddde1556a?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1ODczNjF8&ixlib=rb-4.0.3&q=85");
-      background-size: cover;
-      background-position: center;
-      filter: invert(1) grayscale(1) contrast(500%);
-      transform: scaleY(-1);
-      mix-blend-mode: difference;
-      opacity: 0.5;
-    }
+header{
+  position: relative;
+  height: 50vh;
+  min-height:180px;
+  overflow:hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  margin:0px 0px -50px;
+}
 
-    /*滑動圖片*/
-    .photo {
-      white-space: nowrap;
-      scroll-snap-type: x;
-      overflow-x: scroll;
-      overflow-y: hidden;
-      height: 200px;
-      text-align: left;
-      padding: 10px 0px 0px;
-    }
+.header-img {
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-image: url("https://images.unsplash.com/photo-1606240275318-1168840eadd5?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTU3NDYyODh8&ixlib=rb-4.0.3&q=85");
+  background-color: black;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, black 60%);
+  mask-image: linear-gradient(to top, transparent 0%, black 60%);
+  z-index:-5;
+}
 
-    .photo img {
-      height: 100%;
-      display: inline-block;
-      white-space: normal;
-    }
+.container{
+  text-align:center;
+  margin:0;
+  padding:0px 0px 60px;
+  color:white;
+  z-index:15;
+}
 
-    .title {
-      font-family: "Noto Sans TC", serif;
-      font-size: 20px;
-      letter-spacing: 2px;
-      font-weight: bold;
-      margin: 20px;
-      color: #ff8584;
-    }
+header p{
+  font-weight:bold;
+  margin:0px 0px 8px;
+  mask: none;
+}
 
-    #學習日誌::before {
-      content: "Learning log";
-      position: absolute;
-      transform: translate(40px, 13px);
-      z-index: -1;
-      color: gray;
-      font-size: 15px;
-      font-weight: lighter;
-      font-style: italic;
-      font-family: "Noto Sans TC", sans-serif;
-    }
+header span{
+  font-size:11px;
+  color:lightgray;
+  display:block;
+  mask: none;
+}
 
-    /*收合段落*/
-    .list {
-      padding: 0px 20px 0px;
-      color: rgb(200, 200, 200);
-    }
+.area iframe{
+  height:150px;
+  margin:5px;
+  border:1px #444 solid;
+  border-radius:3px;
+}
 
-    details {
-      margin: 0px 0px 15px;
-    }
+.area{
+  white-space: nowrap;
+  overflow: auto;
+  padding:0px 10px 25px;
+  z-index: 10;
+  position:relative;
+}
 
-    summary {
-      color: gray;
-    }
+.card{
+  z-index: 15;
+  height:130px;
+  width:130px;
+  background-color:gray;
+  vertical-align: top;
+  white-space: normal;
+  display: inline-block;
+  margin:5px;
+  border-radius:2px;
+  overflow:hidden;
+  transition: width 0.8s, color 0.3s;
+  position:relative;
+  color:white;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+}
 
-    summary span {
-      position: relative;
-      font-size: 18px;
-      letter-spacing: 2px;
-      color: white;
-      font-weight: nomal;
-      background-color: transparent;
-      border: none;
-      z-index: 0;
-    }
+.card span{
+  position:absolute;
+  left:10px;
+  bottom:10px;
+}
 
-    summary span::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 45%;
-      transform: translate(5px, 10px);
-      background-image: url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="rgb(255,133,132)" fill-opacity="0.5" fill-rule="evenodd"%3E%3Cpath d="M0 40L40 0H20L0 20M40 40V20L20 40"/%3E%3C/g%3E%3C/svg%3E');
-      background-repeat: repeat;
-      background-size: 7px;
-      z-index: -1;
-    }
+.card:nth-child(1){
+  background-image: url("https://images.unsplash.com/photo-1497100022365-1a3688dc53ec?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTU1MTM2NTl8&ixlib=rb-4.0.3&q=85");
+}
+
+.douknow{
+  background-color:#333;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  color:white;
+  padding:20px;
+  margin:5px 0px 0px;
+}
+
+.douknow div{
+  text-align:center;
+}
+
+.douknow p{
+  font-weight:bold;
+  color:white;
+  font-size:18px;
+  letter-spacing: 5px;
+  margin:5px;
+}
+
+.douknow span{
+  color:lightgray;
+  font-size:12px;
+  text-align:left;
+}
+
+.douknow a{
+  color:white;
+  font-size:12px;
+  display:block;
+  text-decoration: underline;
+  margin:15px 0px 0px;
+}
+
+#clo{
+  margin:0px 15px 0px;
+  display:inline-block;
+}
+
+@media screen and (max-width: 819px){
+  #clo{
+   margin:0px 15px 0px;
+   display:block;
+    
+  }
+}
+
+.douknow ul{
+  margin:0;
+  padding:0;
+  display:inline;
+}
+
+.douknow li{
+  margin:0;
+}
+
+.area2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 5;
+  margin:10px 0px 15px;
+}
+
+.grid-container {
+  columns: 3 150px;
+  column-gap: 10px;
+  width: calc(100% - 30px);
+  margin: 0;
+}
+
+.grid-container div {
+  width: 150px;
+  height:80px;
+  margin: 0px 0px 5px;
+  display: inline-block;
+  width: 100%;
+  border: none;
+  border-radius: 3px;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  background-color: black;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+}
+
+#wax{
+  background-image: url("https://images.unsplash.com/photo-1559091156-b9610fb12eda?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTU2NjA2MzJ8&ixlib=rb-4.0.3&q=80&w=400");
+   background-size: 60%;
+  background-position: -15% 40%;
+}
+#wax p{
+  background-image: linear-gradient(to right, #D71313 30%, transparent 100%);
+}
+
+#ene{
+  background-image: url("https://images.unsplash.com/photo-1611689698962-77dc89162107?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTU2NjI3Mjh8&ixlib=rb-4.0.3&q=80&w=400");
+  background-size: 110%;
+  background-position: -150% 0%;
+}
+#ene p{
+  background-image: linear-gradient(to right, #FF6500 20%, transparent 100%);
+}
+
+#sp{
+  background-image: url("https://images.unsplash.com/photo-1571254120989-7a3c07c50c98?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTU2NjEwNzR8&ixlib=rb-4.0.3&q=80&w=400");
+  background-size: 90%;
+  background-position: 480% 5%;
+}
+#sp p{
+  background-image: linear-gradient(to right, #FEB941 40%, transparent 100%);
+}
+
+#ni{
+  background-image: url("https://images.unsplash.com/photo-1586005660198-47ec569c25ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTU2NjAxMTJ8&ixlib=rb-4.0.3&q=80&w=400");
+ background-size: 120%;
+  background-position: -115% 67%;
+}
+#ni p{
+  background-image: linear-gradient(to right, #e59382 30%, transparent 100%);
+}
+
+#k19{
+  background-image: url("https://images.unsplash.com/photo-1713986719987-fb689460f1f8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTU2NjIwMTN8&ixlib=rb-4.0.3&q=80&w=400");
+}
+#k19 p{
+  background-image: linear-gradient(to right, #57A6A1 40%, transparent 100%);
+}
+
+#word{
+  background-image: url("https://images.unsplash.com/photo-1713640774386-86b5f18972f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTU2Njg4MDJ8&ixlib=rb-4.0.3&q=80&w=400");
+}
+#word p{
+  background-image: linear-gradient(to right, #1A4D2E 30%, transparent 100%);
+}
+
+.grid-container p {
+  z-index: 5;
+  color: white;
+  font-weight:bold;
+  padding: 12px 13px 0px;
+  margin: -5px;
+  width: 100%;
+  height:100%;
+  position: absolute;
+  left:3px;
+  top:5px;
+  background-image: linear-gradient(to right, #666 30%, transparent 100%);
+}
+
 
     /*頁尾*/
-    footer {
+footer {
       background-color: black;
       padding: 20px;
       color: white;
@@ -268,7 +379,7 @@
       font-family: "Noto Sans TC", serif;
     }
 
-    .info {
+.info {
       text-align: left;
       font-family: "Noto Sans TC", sans-serif;
       display: flex;
@@ -276,52 +387,53 @@
       color: gray;
     }
 
-    .info-title {
+.info-title {
       font-weight: bold;
       color: white;
     }
 
-    .info-L {
+.info-L {
       flex: 50%;
     }
 
-    .info-R {
+.info-R {
       flex: 50%;
     }
 
-    .info span {
+.info span {
       display: block;
       font-size: 14px;
       padding: 2px 0px 2px;
     }
 
-    footer hr {
+footer hr {
       border: 0.5px rgba(255, 255, 255, 0.4) solid;
     }
 
-    /* width */
-    @media screen and (min-width: 768px) {
-      ::-webkit-scrollbar {
+/* width */
+@media screen and (min-width: 768px) {
+::-webkit-scrollbar {
         width: 10px;
         height: 10px;
       }
 
-      /* Track */
-      ::-webkit-scrollbar-track {
+/* Track */
+::-webkit-scrollbar-track {
         border: none;
         border-radius: 10px;
       }
 
-      /* Handle */
-      ::-webkit-scrollbar-thumb {
+/* Handle */
+::-webkit-scrollbar-thumb {
         background: rgba(102, 102, 102, 0.5);
         border-radius: 10px;
       }
 
-      /* Handle on hover */
-      ::-webkit-scrollbar-thumb:hover {
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
         background: rgba(66, 66, 66, 0.5);
       }
+}
   </style>
 </head>
 
@@ -340,78 +452,141 @@
 
   <div class="img"></div>
 
-  <span class="light" id="L1">▓</span>
-  <span class="light" id="L2">╭</span>
-  <span class="light" id="L3">i</span>
-  <span class="light" id="L4">|</span>
+  <header>
+    <div class="header-img"></div>
+    <div class="container">
+      <p>學習日誌</p>
+      <span>學習．探索．記錄．成果</span>
+    </div>
+  </header>
 
-  <div class="top">
-    <br><span class="title" id="學習日誌">學習日誌</span>
-    <div class="top-img"></div>
+  <span class="title">12321</span>
+  <div class="area">
+    <div class="card" id="" onclick="location.href=''">
+      <span>壬木屎昨朋</span>
+    </div>
+    <div class="card" id="" onclick="location.href=''">
+      <span>hsdfg</span>
+    </div>
+    <div class="card" id="" onclick="location.href=''">
+      <span>hgfhg</span>
+    </div>
+    <div class="card" id="" onclick="location.href=''">
+      <span>fhgsdfg</span>
+    </div>
+    <div class="card" id="" onclick="location.href=''">
+      <span>hgfhgs</span>
+    </div>
+    <div class="card" id="" onclick="location.href=''">
+      <span>hggsdfg</span>
+    </div>
+    <div class="card" id="" onclick="location.href=''">
+      <span>gfhg</span>
+    </div>
   </div>
 
-  <div class="list" style="min-height:85vh">
-    <details>
-      <summary><span>一些東西<span></summary>
-
-      <div class="photo">
-        <img src="https://images.unsplash.com/photo-1644031260422-4cb8f72438e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1ODIyNzh8&ixlib=rb-4.0.3&q=80&w=400">
-        <img src="https://images.unsplash.com/photo-1600003118950-e1a4afbf309b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1ODIzMDF8&ixlib=rb-4.0.3&q=80&w=400">
-        <img src="">
-      </div>
-
-      <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
-    </details>
-    <details>
-      <summary><span>Epcot Center<span></summary>
-      <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
-    </details>
-    <details>
-      <summary><span>一些東西<span></summary>
-
-      <div class="photo">
-        <img src="https://images.unsplash.com/photo-1644031260422-4cb8f72438e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1ODIyNzh8&ixlib=rb-4.0.3&q=80&w=400">
-        <img src="https://images.unsplash.com/photo-1600003118950-e1a4afbf309b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1ODIzMDF8&ixlib=rb-4.0.3&q=80&w=400">
-        <img src="">
-      </div>
-
-      <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
-    </details>
-    <details>
-      <summary><span>Epcot Center<span></summary>
-      <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
-    </details>
-    <details>
-      <summary><span>一些東西<span></summary>
-
-      <div class="photo">
-        <img src="https://images.unsplash.com/photo-1644031260422-4cb8f72438e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1ODIyNzh8&ixlib=rb-4.0.3&q=80&w=400">
-        <img src="https://images.unsplash.com/photo-1600003118950-e1a4afbf309b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1ODIzMDF8&ixlib=rb-4.0.3&q=80&w=400">
-        <img src="">
-      </div>
-
-      <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
-    </details>
-    <details>
-      <summary><span>Epcot Center<span></summary>
-      <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
-    </details>
-    <details>
-      <summary><span>一些東西<span></summary>
-
-      <div class="photo">
-        <img src="https://images.unsplash.com/photo-1644031260422-4cb8f72438e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1ODIyNzh8&ixlib=rb-4.0.3&q=80&w=400">
-        <img src="https://images.unsplash.com/photo-1600003118950-e1a4afbf309b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1ODIzMDF8&ixlib=rb-4.0.3&q=80&w=400">
-        <img src="">
-      </div>
-
-      <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
-    </details>
-    <details>
-      <summary><span>Epcot Center<span></summary>
-      <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
-    </details>
+  <span class="title">12321</span>
+  <div class="area">
+    <div class="card" id="" onclick="location.href=''">
+      <span>hgfhgsdfg</span>
+    </div>
+    <div class="card" id="" onclick="location.href=''">
+      <span>hgfhgsdfg</span>
+    </div>
+    <div class="card" id="" onclick="location.href=''">
+      <span>hgfhgsdfg</span>
+    </div>
+    <div class="card" id="" onclick="location.href=''">
+      <span>hgfhgsdfg</span>
+    </div>
+    <div class="card" id="" onclick="location.href=''">
+      <span>hgfhgsdfg</span>
+    </div>
+    <div class="card" id="" onclick="location.href=''">
+      <span>hgfhgsdfg</span>
+    </div>
+    <div class="card" id="" onclick="location.href=''">
+      <span>hgfhgsdfg</span>
+    </div>
   </div>
+
+  <div class="douknow">
+    <div>
+      <p>你知道嗎？</p>
+      <span id="clo">拘束可區分為六大種類，</span>
+      <span id="clo">
+        <ul>
+          <li>將身體綁在一起的（繩、帶、皮具）</li>
+          <li>將身體展開的（伸展橫木、Ｘ型木具）</li>
+          <li>將身體與其他物體綑綁在一起的（椅子、柱子)</li>
+        </ul>
+      </span>
+      <span id="clo">
+        <ul>
+          <li>將身體某部位吊起來的（吊綁）</li>
+          <li>限制正常身體活動的（束裙、手銬、馬具）</li>
+          <li>包裹：利用布或塑料製品將整個身體包裹成木乃伊狀</li>
+        </ul>
+      </span>
+      <a href="https://zh.wikipedia.org/wiki/%E7%B6%81%E7%B8%9B_(BDSM)#%E6%8A%80%E5%B7%A7">了解更多</a>
+    </div>
+  </div>
+
+  <span class="title">其他</span>
+  <div class="area2">
+    <div class="grid-container">
+      <div id="wax" onclick="location.href=''">
+        <p>曾子划土</p>
+      </div>
+      <div id="ene" onclick="location.href=''">
+        <p>汀江日</p>
+      </div>
+      <div id="sp" onclick="location.href=''">
+        <p>尼丑</p>
+      </div>
+      <div id="ni" onclick="location.href=''">
+        <p>夕比版</p>
+      </div>
+      <div id="k19" onclick="location.href=''">
+        <p>1 - 9</p>
+      </div>
+      <div id="word" onclick="location.href=''">
+        <p>囚吁</p>
+      </div>
+    </div>
+  </div>
+
+  <span class="title">推薦影片</span>
+  <div class="area">
+    <iframe src="https://www.youtube.com/embed/zKPhjkw3Y84?si=R4yTaeVHpgExjJ7N" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/UK9_h5Iku64?si=nl_N-FSfcE5gtCbP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/pP-A1s4ikBo?si=IrkbQy1OboBmJA5R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/oWTgvRGwzWg?si=dw-hPo04h512nVz4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+
+  <div class="douknow">
+    <div>
+      <p>你知道嗎？</p>
+      <span id="clo">
+        <ul>
+          <li>BDSM可能會或不會包含任何形式的性。</li>
+          <li>BDSM可能會或不會包含性角色扮演。</li>
+          <li>BDSM可能會或不會包含年齡扮演。</li>
+        </ul>
+      </span>
+      <span id="clo">
+        <ul>
+
+          <li>BDSM遊戲常常包含了心理上的戀物愉悅。</li>
+          <li>有些BDSM玩家擁有多重性伴侶，或者在性上面維持單一性伴侶，而和其他人進行沒有性的BDSM遊戲。</li>
+          <li>一對伴侶可能在某些時候會進行BDSM性行為，而其他時候則進行普通的性關係。</li>
+        </ul>
+      </span>
+      <a href="https://zh.wikipedia.org/wiki/BDSM#%E9%97%9C%E6%96%BCBDSM%E7%9A%84%E9%87%8D%E9%BB%9E">了解更多</a>
+    </div>
+  </div>
+
+  <div style="min-height:100px"></div>
 
   <footer>
     <div class="info">
@@ -454,19 +629,6 @@
       }
       isTransparent = !isTransparent;
     });
-    // 檢查裝置是否支援傾斜事件
-    if ('DeviceOrientationEvent' in window) {
-      window.addEventListener('deviceorientation', handleOrientation);
-    }
-
-    function handleOrientation(event) {
-      // 取得傾斜角度
-      var tiltLR = -event.gamma / 4; // 左右傾斜
-      var tiltFB = -event.beta / 5; // 前後傾斜
-      // 根據傾斜角度移動div
-      var div = document.querySelector('.img');
-      div.style.transform = 'translate(' + tiltLR + 'px, ' + tiltFB + 'px)';
-    }
   </script>
 
 </body>
