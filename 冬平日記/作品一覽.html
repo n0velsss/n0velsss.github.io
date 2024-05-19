@@ -3,190 +3,34 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="keywords" content="">
-  <title>冬平日記-作品一覽</title>
+  <title>冬平日記-學習日誌</title>
 
   <style>
-@import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
-
-body {
+    @import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
+  body {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   font-family: "Noto Sans TC", sans-serif;
-  background-color: gray;
+  background-color: black;
   margin: 0px;
   padding: 0px;
 }
 
- audio {
-  position: absolute;
-  mix-blend-mode: different;
-  opacity: 0.5;
-  width: calc(100% - 20px);
-  height:25px;
-  top: calc(100vh - 40px);
-  left: 10px;
-  z-index: 11;
-}
-
-/* 光效 */
-.light{
-  color:transparent;
-  font-size:20px;
-  text-shadow:-10px 10px red,-6px 6px yellow,-2px 2px #00A1ff,2px -2px blue;
-  filter:blur(6px);
-  opacity: 0.7;
-  z-index: -111;
-  mix-blend-mode: plus-lighter;
-}
-
-#L1{
-  position:fixed;
-  right:7%;
-  bottom:12%;
-}
-
-#L2{
-  position:fixed;
-  left:3%;
-  top:5%;
-  font-size:55px;
-  filter:blur(5px);
-  font-weight:light;
-  opacity: 0.8;
-}
-
-#L3{
-  position:fixed;
-  left:8%;
-  bottom:5%;
-  font-size:70px;
-  filter:blur(15px);
-  font-weight:light;
-  opacity: 0.3;
-  text-shadow:0px 0px red,20px 0px yellow,40px 0px #00A1ff,60px 0px blue;
-  transform:scale(1.8) rotatez(-40deg);
-}
-
-#L4{
-  position:fixed;
-  right:25%;
-  top:14%;
-  font-size:20px;
-  filter:blur(8px);
-  font-weight:light;
-  opacity: 1;
-  text-shadow:0px 0px red,10px 0px yellow,20px 0px #00A1ff,30px 0px blue;
-  transform:scale(1.8) rotatez(-40deg);
-}
-
-
-
-.img2{
-  filter: contrast(1.01) blur(3px);
+/*菜單*/
+.menu {
   position: fixed;
-  bottom: 10px;
-  left: 20px;
-  width: 100px;
-  z-index: -111;
-  opacity: 0.5;
-  mix-blend-mode: plus-lighter;
-  animation: move2 20s infinite;
+  padding: 15px;
+  top: 0;
+  right: 0;
+  z-index: 997;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.9);
 }
-
-#img2-2{
-  position: fixed;
-  filter: contrast(1.1) blur(0px);
-  opacity: 0.2;
-  mix-blend-mode: plus-lighter;
-  animation: opacity 7s infinite;
-  animation: move2 20s infinite;
-}
-
-@keyframes move2 {
-  0%   {  
-  bottom: 10px;
-  left: 20px;}
-  20%  {  
-  bottom: 15px;
-  left: 16px;}
-  60%  {  
-  bottom: 6px;
-  left: 22px;}
-  80%  {  
-  bottom: 8px;
-  left: 17px;}
-  100% {  
-  bottom: 10px;
-  left: 20px;}
-}
-
-@keyframes opacity2 {
-  0%   {opacity: 0.2;}
-  25%  {opacity: 0.05;}
-  75%  {opacity: 0.15}
-  100% {opacity: 0.2;}
-}
-
-.img3{
-  filter:grayscale(1) contrast(1.5) blur(3px);
-  background-size: 100%;
-  position: fixed;
-  top: 5px;
-  right: 15px;
-  width: 100px;
-  z-index: -111;
-  opacity: 0.5;
-  mix-blend-mode: plus-lighter;
-  animation: move3 25s infinite;
-}
-
-#img3-2{
-  filter: grayscale(1) contrast(1.5) blur(0px);
-  opacity: 0.15;
-  animation: opacity3 5s infinite;
-  animation: move3 25s infinite;
-}
-
-@keyframes move3 {
-  0%   {  
-  top: 5px;
-  right: 15px;}
-  20%  {  
-  top: 0px;
-  right: 20px;}
-  60%  {  
-  top: 10px;
-  right: 8px;}
-  80%  {  
-  top: 0px;
-  right: 10px;}
-  100% {  
-  top: 5px;
-  right: 15px;}
-}
-
-@keyframes opacity3 {
-  0%   {opacity: 0.15;}
-  25%  {opacity: 0.05;}
-  75%  {opacity: 0.1}
-  100% {opacity: 0.15;}
-}
-
-/* 菜單 */
-.menu{
-  position:fixed;
-  padding:15px;  
-  top:0;
-  right:0;
-  Z-index:997;
-  color:gray;
-  font-size:24px;
-  font-weight:bold;
-  cursor:pointer;
-  text-shadow: 0px 0px 1px rgba(0,0,0,0.9);
-  }
 
 .sidenav {
   height: 100%;
@@ -220,15 +64,20 @@ body {
 }
 
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+  .sidenav {
+    padding-top: 15px;
+  }
+
+  .sidenav a {
+    font-size: 18px;
+  }
 }
 
-/* 背景 */
+/*背景圖片*/
 .img {
   transition: transform 0.1s;
-  background-image: url("https://images.unsplash.com/photo-1609357668849-f32d1dc99ee0?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTMwODYyNjR8&ixlib=rb-4.0.3&q=85");
-  filter: invert(0) grayscale(0) blur(2px);
+  background-image: url("https://images.unsplash.com/photo-1454117096348-e4abbeba002c?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTYwOTkyNTl8&ixlib=rb-4.0.3&q=85");
+  filter: invert(1) grayscale();
   background-size: cover;
   position: fixed;
   top: -80px;
@@ -236,7 +85,7 @@ body {
   height: 150vh;
   width: 120%;
   z-index: -111;
-  opacity: 0.3;
+  opacity: 0.2;
 }
 
 #toggleButton {
@@ -259,108 +108,237 @@ body {
   filter: blur(30px);
 }
 
-/**/
-.top{
-  position:relative;
-  overflow:hidden;
-  min-height:100px;
-}
-
-.top-img{
-  position:absolute;
-  top:0;
-  width:100%;
-  height:155%;
-  Z-index:-5;
-  background-image: url("https://images.unsplash.com/photo-1502740289988-04eddde1556a?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1ODczNjF8&ixlib=rb-4.0.3&q=85");
-  background-size:cover;
-  background-position:center;
-  filter: invert(1) grayscale(1) contrast(400%);
-  transform: scaleY(-1);
-  mix-blend-mode: plus-lighter;
-  opacity: 0.3;
-}
-
-/**/
-.photo {
-  white-space: nowrap;
-  scroll-snap-type: x;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  height: 200px;
-  text-align: left;
-  padding:10px 0px 0px;
-}
-
-.photo img{
-  height:100%;
-  display: inline-block;
-  white-space: normal;
-}
-
-/**/
 .title {
-  font-family: "Noto Sans TC", serif;
   font-size: 20px;
   letter-spacing: 2px;
   font-weight: bold;
-  margin: 20px;
-  color: #ffA984;
+  margin: 15px 15px 5px;
+  color: #ff8584;
+  color: white;
+  display: block;
 }
 
-#學習日誌::before{
-  content: "Portfolio";
+.work {
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+}
+
+.big {
+  height: 80vh;
+  width: calc(100vw - 200px);
+  border: none;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  background-image: url("https://images.unsplash.com/photo-1507718849053-b1de24eafb18?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTYxMjEzODJ8&ixlib=rb-4.0.3&q=80&w=400");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.big span {
   position: absolute;
-  transform: translate(40px, 13px);
-  z-index: -1;
-  color:lightgray;
-  font-size:15px;
-  font-weight: lighter;
-  font-style: italic;
-  font-family: "Noto Sans TC", sans-serif;
+  color: white;
+  top: 15px;
+  left: 15px;
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.big p {
+  position: absolute;
+  color: lightgray;
+  bottom: 0;
+  right: 0;
+  font-size: 14px;
+  padding:0 35px 0;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.side {
+  position: relative;
+  border: none;
+  display: inline-block;
+  margin: 0 -5px 0;
+  padding: 0;
+  height: 80vh;
+  overflow: auto;
+}
+
+
+.side div {
+  width: 200px;
+  height: calc(80vh / 3);
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 580px) {
+  .work {
+    white-space: wrap;
   }
 
-/**/
-.list{
-  padding:0px 20px 0px;
-  color:white;
-  position:relative;
+  .work .big {
+    width: 100vw;
+    height: 70vh;
+  }
+
+  .work .side {
+    white-space: nowrap;
+    width: 100%;
+    height: 30vh;
+    margin: -5px 0 0;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+
+  .side div {
+    width: 180px;
+    height: 100%;
+    margin: 0px -3px 0px;
+    border: none;
+    display: inline-block;
+    white-space: wrap;
+  }
 }
 
-details{
-  margin:0px 0px 15px;
+.side div {
+  background-size: cover;
+  background-position: center;
 }
 
-summary{
-  color:lightgray;
+.side div:nth-child(1) {
+  background-image: url("https://images.unsplash.com/photo-1475257026007-0753d5429e10?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTYxMDI1ODZ8&ixlib=rb-4.0.3&q=80&w=400");
 }
 
-summary span{
+.side div:nth-child(2) {
+  background-image: url("https://images.unsplash.com/photo-1514436598301-27a65f40469f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTYxMDI1ODZ8&ixlib=rb-4.0.3&q=80&w=400");
+}
+
+.side div:nth-child(3) {
+  background-image: url("https://images.unsplash.com/photo-1516575355332-d2934104e253?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTYxMDI2MTh8&ixlib=rb-4.0.3&q=80&w=400");
+}
+
+.side div:nth-child(4) {
+  background-image: url("https://images.unsplash.com/photo-1475257026007-0753d5429e10?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTYxMDI4MzB8&ixlib=rb-4.0.3&q=80&w=400");
+}
+
+.side div:nth-child(5) {
+  background-image: url("https://images.unsplash.com/photo-1484359755660-c7ed8f31f0cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTYxMDI4NDZ8&ixlib=rb-4.0.3&q=80&w=400");
+}
+
+.area iframe {
+  height: 150px;
+  margin: 5px;
+  border: 1px #444 solid;
+  border-radius: 3px;
+}
+
+.area {
+  white-space: nowrap;
+  overflow: auto;
+  padding: 0px 10px 25px;
+  z-index: 10;
   position: relative;
-  font-size: 18px;
-  letter-spacing: 2px;
-  color: white;
-  font-weight: nomal;
-  background-color: transparent;
-  border: none;
-  z-index: 0;
 }
 
-summary span::before {
+.card {
+  z-index: 15;
+  height: 150px;
+  width: 200px;
+  background-color: gray;
+  vertical-align: top;
+  white-space: normal;
+  display: inline-block;
+  margin: 5px;
+  border-radius: 2px;
+  overflow: hidden;
+  transition: width 0.8s, color 0.3s;
+  position: relative;
+  color: white;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.card:before {
+  z-index: 5;
   content: "";
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
+  height: 50px;
   width: 100%;
-  height: 45%;
-  transform: translate(5px, 10px);
-  background-image: url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="rgb(255,169,132)" fill-opacity="0.7" fill-rule="evenodd"%3E%3Cpath d="M0 40L40 0H20L0 20M40 40V20L20 40"/%3E%3C/g%3E%3C/svg%3E');
-  background-repeat: repeat;
-  background-size: 7px;
-  z-index: -1;
+  background-image: linear-gradient(
+    to top,
+    black 0%,
+    rgba(0, 0, 0, 0.5) 40%,
+    transparent 100%
+  );
+  opacity: 0.6;
 }
 
-/**/
+.card span {
+  z-index: 10;
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+}
+
+.card:nth-child(1) {
+  background-image: url("https://images.unsplash.com/photo-1497100022365-1a3688dc53ec?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTU1MTM2NTl8&ixlib=rb-4.0.3&q=85");
+}
+
+@media screen and (max-width: 819px) {
+  #clo {
+    margin: 0px 15px 0px;
+    display: block;
+  }
+}
+
+.douknow ul {
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+
+.douknow li {
+  margin: 0;
+}
+
+.area3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 5;
+}
+
+.grid_container {
+  columns: 4 150px;
+  column-gap: 0;
+  margin: 0;
+}
+
+.grid_container img {
+  width: 150px;
+  margin: 0 0 -5px;
+  display: inline-block;
+  width: 100%;
+  border: none;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  background-color: white;
+}
+
+/*頁尾*/
 footer {
   background-color: black;
   padding: 20px;
@@ -400,96 +378,106 @@ footer hr {
   border: 0.5px rgba(255, 255, 255, 0.4) solid;
 }
 
-/**/
+/* width */
 @media screen and (min-width: 768px) {
   ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
   }
 
+  /* Track */
   ::-webkit-scrollbar-track {
     border: none;
     border-radius: 10px;
   }
 
+  /* Handle */
   ::-webkit-scrollbar-thumb {
     background: rgba(102, 102, 102, 0.5);
     border-radius: 10px;
   }
-  
+
+  /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: rgba(66, 66, 66, 0.5);
   }
 }
+
   </style>
 </head>
 
 <body>
   <span class="menu" onclick="openNav()">&#9776</span>
+
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="https://n0velsss.github.io/冬平日記
-/主頁.html">主頁</a>
+    <a href="https://n0velsss.github.io/%E5%86%AC%E5%B9%B3%E6%97%A5%E8%A8%98/%E4%B8%BB%E9%A0%81.html#">主頁</a>
     <a href="https://n0velsss.github.io/%E5%86%AC%E5%B9%B3%E6%97%A5%E8%A8%98/%E5%AD%B8%E7%BF%92%E6%97%A5%E8%AA%8C.html#">學習日誌</a>
     <a href="https://n0velsss.github.io/%E5%86%AC%E5%B9%B3%E6%97%A5%E8%A8%98/%E4%BD%9C%E5%93%81%E4%B8%80%E8%A6%BD.html">作品一覽</a>
     <a href="https://n0velsss.github.io/%E5%86%AC%E5%B9%B3%E6%97%A5%E8%A8%98/%E4%BB%BB%E5%8B%99%E5%8F%8A%E8%A8%88%E6%99%82.html">任務及計時</a>
-    <audio controls autoplay loop>
-      <source src="https://n0velsss.github.io/media/audio/Underwater%20Exploration%20-%20Godmode.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
   </div>
 
   <button id="toggleButton">隱藏</button>
 
   <div class="img"></div>
-  <div>
-    <img class="img2" src="https://images.unsplash.com/photo-1578684620114-e5d38ff1d542?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTMyNzQ1MTB8&ixlib=rb-4.0.3&q=80&w=400">
-    <img class="img2" id="img2-2" src="https://images.unsplash.com/photo-1578684620114-e5d38ff1d542?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTMyNzQ1MTB8&ixlib=rb-4.0.3&q=80&w=400">
-  </div>
-  <div>
-    <img class="img3" src="https://images.unsplash.com/photo-1624937650780-8ee85bbb83a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTMyNzIyNzZ8&ixlib=rb-4.0.3&q=80&w=400">
-    <img class="img3" id="img3-2" src="https://images.unsplash.com/photo-1624937650780-8ee85bbb83a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTMyNzIyNzZ8&ixlib=rb-4.0.3&q=80&w=400">
-  </div>
 
-  <span class="light" id="L1">▓</span>
-  <span class="light" id="L2">╭</span>
-  <span class="light" id="L3">i</span>
-  <span class="light" id="L4">|</span>
-
-  <div class="top">
-    <br><span class="title" id="學習日誌">作品一覽</span>
-    <div class="top-img"></div>
+  <div class="work">
+    <div class="big">
+      <span>今期趨勢</span>
+      <p>查看更多</p>
+    </div>
+    <div class="side">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   </div>
 
-  <div class="list" style="min-height:85vh">
-    <details>
-      <summary><span>懸空的繩結<span></summary>
+  <span class="title">分區</span>
+  <div class="area">
+    <div class="card" id="" onclick="location.href=''">
+      <span>hgfhgsdfg</span>
+    </div>
+    <div class="card" id="" onclick="location.href=''">
+      <span>hgfhgsdfg</span>
+    </div>
+    <div class="card" id="" onclick="location.href=''">
+      <span>hgfhgsdfg</span>
+    </div>
+    <div class="card" id="" onclick="location.href=''">
+      <span>hgfhgsdfg</span>
+    </div>
+    <div class="card" id="" onclick="location.href=''">
+      <span>hgfhgsdfg</span>
+    </div>
+  </div>
+  
+  <span class="title">影片</span>
+  <div class="area">
+    <iframe src="https://www.youtube.com/embed/zKPhjkw3Y84?si=R4yTaeVHpgExjJ7N" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/UK9_h5Iku64?si=nl_N-FSfcE5gtCbP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/pP-A1s4ikBo?si=IrkbQy1OboBmJA5R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/oWTgvRGwzWg?si=dw-hPo04h512nVz4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
 
-      <div class="photo">
-        <img src="https://raw.githubusercontent.com/n0velsss/n0velsss.github.io/main/%E5%86%AC%E5%B9%B3%E6%97%A5%E8%A8%98/media/img/20240328_225522.jpg">
-        <img src="https://raw.githubusercontent.com/n0velsss/n0velsss.github.io/main/%E5%86%AC%E5%B9%B3%E6%97%A5%E8%A8%98/media/img/20240328_154923.jpg">
-        <img src="https://raw.githubusercontent.com/n0velsss/n0velsss.github.io/main/%E5%86%AC%E5%B9%B3%E6%97%A5%E8%A8%98/media/img/IMG-20240328-WA0001.jpg">
-      </div>
+  <span class="title" style="padding:0 0 5px;">照片</span>
+  <div class="area3">
+    <div class="grid_container">
+      <img src='https://images.unsplash.com/photo-1586020435958-8298e2cb5f64?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTYxMTk4NTl8&ixlib=rb-4.0.3&q=80&w=400' alt=''>
+      <img src='https://images.unsplash.com/photo-1503198515498-d0bd9ed16902?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTYxMTk3ODN8&ixlib=rb-4.0.3&q=80&w=400' alt=''>
+      <img src='https://images.unsplash.com/photo-1608447714925-599deeb5a682?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTYxMjAyMDJ8&ixlib=rb-4.0.3&q=80&w=400' alt=''>
+      <img src='https://images.unsplash.com/photo-1572283046480-e990be92d301?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTYxMTk4NTl8&ixlib=rb-4.0.3&q=80&w=400' alt=''>
+      <img src='https://images.unsplash.com/photo-1610961388965-129b15e46a2c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTYxMTk4NDN8&ixlib=rb-4.0.3&q=80&w=400' alt=''>
+      <img src='https://images.unsplash.com/photo-1605629713998-167cdc70afa2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTYxMTk3ODN8&ixlib=rb-4.0.3&q=80&w=400' alt=''>
+      <img src='https://images.unsplash.com/photo-1504610926078-a1611febcad3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTYxMTk4NTl8&ixlib=rb-4.0.3&q=80&w=400' alt=''>
+      <img src='https://images.unsplash.com/photo-1533134486753-c833f0ed4866?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTYxMTk4MTV8&ixlib=rb-4.0.3&q=80&w=400' alt=''>
+      <img src='https://images.unsplash.com/photo-1516663713099-37eb6d60c825?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTYxMTk4MTV8&ixlib=rb-4.0.3&q=80&w=400' alt=''>
+      <img src='https://images.unsplash.com/photo-1513569771920-c9e1d31714af?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTYxMjAyMDJ8&ixlib=rb-4.0.3&q=80&w=400' alt=''>
+    </div>
+  </div>
 
-      <p>《懸空的繩結》是由三維建模軟件Blender制作的圖片，這亦是我第一次產出與繩藝有關的作品。</p>
-    </details>
-    <details>
-      <summary><span>Epcot Center<span></summary>
-      <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
-    </details>
-
-    <details>
-      <summary><span>一些東西<span></summary>
-
-      <div class="photo">
-        <img src="https://images.unsplash.com/photo-1578684620114-e5d38ff1d542?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTMyNzQ1MTB8&ixlib=rb-4.0.3&q=85">
-        <img src="https://images.unsplash.com/photo-1600003118950-e1a4afbf309b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTI1ODIzMDF8&ixlib=rb-4.0.3&q=80&w=400">
-        <img src="">
-      </div>
-
-      <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
-    </details>
-    <br><br><br>
+   <div style="min-height:100px">
   </div>
 
   <footer>
@@ -510,7 +498,6 @@ footer hr {
 
   </footer>
 
-  <!--菜單-->
   <script>
     function openNav() {
       document.getElementById("mySidenav").style.width = "250px";
@@ -519,9 +506,6 @@ footer hr {
     function closeNav() {
       document.getElementById("mySidenav").style.width = "0";
     }
-  </script>
-  <!--隱藏-->
-  <script>
     var isTransparent = false;
     var toggleButton = document.getElementById("toggleButton");
     toggleButton.addEventListener("click", function() {
@@ -537,20 +521,8 @@ footer hr {
       }
       isTransparent = !isTransparent;
     });
-    // 檢查裝置是否支援傾斜事件
-    if ('DeviceOrientationEvent' in window) {
-      window.addEventListener('deviceorientation', handleOrientation);
-    }
-
-    function handleOrientation(event) {
-      // 取得傾斜角度
-      var tiltLR = -event.gamma / 4; // 左右傾斜
-      var tiltFB = -event.beta / 5; // 前後傾斜
-      // 根據傾斜角度移動div
-      var div = document.querySelector('.img');
-      div.style.transform = 'translate(' + tiltLR + 'px, ' + tiltFB + 'px)';
-    }
   </script>
+
 </body>
 
-  </html>
+</html>
